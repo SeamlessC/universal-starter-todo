@@ -1,6 +1,4 @@
-import React from 'react'
-import { createStyles, Button  } from "@mantine/core";
-import { useState } from "react";
+import { createStyles, Button } from "@mantine/core";
 import { AutocompleteLoading } from './Input';
 
 const useStyles = createStyles((theme) => ({
@@ -8,7 +6,7 @@ const useStyles = createStyles((theme) => ({
 		background: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
 		padding: "2% 3%",
 		borderRadius: theme.radius.md,
-        marginBottom: "3%"
+        marginBottom: "3%",
 	},
 	label: {
 		color: theme.colorScheme === "dark" ? theme.white : theme.colors.dark,
@@ -29,9 +27,24 @@ const useStyles = createStyles((theme) => ({
         width: "30%",
         background: "red",
         borderRadius: "5px",
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            width: "50%",
+        },
     },
     continueBtn: {
-        width: "100%"
+        width: "100%",
+    },
+    mobileView: {
+        display: "none",
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            display: "block",
+        },
+    },
+    desktopView: {
+        display: "block",
+        [`@media (max-width: 800px)`]: {
+            display: "none",
+        },
     }
 }));
 
@@ -54,7 +67,8 @@ function DashboardPreferences() {
   return (
     <div className={classes.main}>
         <div className={classes.label}>
-            {window.innerWidth >= 500 ? "Fill out your dashboard preferences" : "A"}
+            <div className={classes.desktopView}>Fill out your dashboard preferences</div>
+            <div className={classes.mobileView}>Dashboard preferences</div>
         </div>
         <div className={classes.inputBox}>
             {inputs()}

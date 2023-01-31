@@ -42,9 +42,7 @@ export function HomeDashboard() {
 					</Grid.Col>
 				</Grid>
 			</Container>
-			<Container>
-				<DashboardPreferences />
-			</Container>
+			<DashboardPreferences />	
 		</div>
 	);
 }

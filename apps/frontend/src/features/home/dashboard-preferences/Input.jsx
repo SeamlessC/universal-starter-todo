@@ -5,6 +5,9 @@ const useStyles = createStyles((theme) => ({
   input: {
       padding: "10px 0",
       width: "70%",
+      [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+        width: "100%",
+      },
   }
 }));
 
