@@ -16,24 +16,27 @@ const useStyles = createStyles((theme) => ({
 
 const widgetInfo = [
   {
-    name: "Facebook Insights",
+    name: "Custom Widgets",
     icon: AdReport,
     data: [
-      
+      {name: "Pie Chart", icon: AdReport},
+      {name: "Trend", icon: AdReport},
+      {name: "Stacked Columns", icon: AdReport},
+      {name: "Gauge", icon: AdReport},
+      {name: "Pie Chart", icon: AdReport},
+      {name: "Trend", icon: AdReport},
+      {name: "Stacked Columns", icon: AdReport},
+      {name: "Gauge", icon: AdReport},
     ],
   },
   {
-    name: "Google Analytics",
+    name: "Static Widgets",
     icon: AdReport,
     data: [
-      
-    ],
-  },
-  {
-    name: "Google Insights",
-    icon: AdReport,
-    data: [
-      
+      {name: "Pie Chart", icon: AdReport},
+      {name: "Trend", icon: AdReport},
+      {name: "Stacked Columns", icon: AdReport},
+      {name: "Gauge", icon: AdReport},
     ],
   },
 ];
@@ -49,7 +52,7 @@ function DrawerWidgets() {
         icon={<img src={Search} width={20} />}
       />
 
-      <DashboardAccordion displayInfo={widgetInfo} />
+      <DashboardAccordion type='widget' displayInfo={widgetInfo} />
     </>
   )
 }

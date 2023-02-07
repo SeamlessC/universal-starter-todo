@@ -1,11 +1,19 @@
-import { Checkbox, createStyles, Grid, Text } from '@mantine/core';
-import React from 'react'
+import { Card, Center, Checkbox, createStyles, Grid, Text } from '@mantine/core';
+import AdReport from '../../assets/ad_report.png';
 
 const useStyles = createStyles((theme) => ({
     gridBottomBorder: {
       marginTop: "10px",
       borderBottom: `1px solid ${theme.colors.red[2]}`,
     },
+    widgetGrid: {
+        margin: "0 6%",
+    },
+    widgetCard: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+    }
 })); 
 
 function DashboardAccordionData(accordionData: { type: string, data1: { name: string; }[]}) {
@@ -32,7 +40,20 @@ function DashboardAccordionData(accordionData: { type: string, data1: { name: st
                     );
                 })
             : ( accordionData.type == 'widget' ? 
-                <div>f</div> 
+                    <Grid className={classes.widgetGrid}>
+                        {
+                            accordionData.data1.map((e, i) => {
+                                return (
+                                    <Grid.Col span={6} key={i}>
+                                        <Card shadow="sm" p="lg" radius="md" withBorder className={classes.widgetCard}>
+                                            <img src={AdReport} width={30} />
+                                            <Text style={{color: theme.colors.gray[7]}}>{e.name}</Text>
+                                        </Card>
+                                    </Grid.Col>
+                                );
+                            })
+                        }
+                    </Grid>
             : 
                 <div>d</div>
             )
