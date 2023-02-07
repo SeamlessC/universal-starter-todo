@@ -11,6 +11,9 @@ const useStyles = createStyles((theme) => ({
   },
   navToIntegrateLink: {
 
+  },
+  drawerContainer: {
+    padding: "20px",
   }
 }));
 
@@ -43,7 +46,7 @@ function DrawerWidgets() {
   const { classes, theme } = useStyles()
 
   return (
-    <div>
+    <div className={classes.drawerContainer}>
       <TextInput
         className={classes.search}
         placeholder="Search"

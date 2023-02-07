@@ -12,6 +12,9 @@ const useStyles = createStyles((theme) => ({
   },
   navToIntegrateLink: {
 
+  },
+  presetContainer: {
+    padding: "20px",
   }
 }));
 
@@ -51,7 +54,7 @@ const DrawerPresets = () => {
   const { classes, theme } = useStyles();
 
   return (
-    <div>
+    <div className={classes.presetContainer}>
       <TextInput
         className={classes.search}
         placeholder="Search"

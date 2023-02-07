@@ -2,6 +2,7 @@ import { ActionIcon, Button, createStyles, Drawer, Grid, Stack, Tabs } from '@ma
 import { useState } from 'react'
 import rightArrow from '../../../assets/right-arrow.png';
 import DrawerPresets from './DrawerPresets';
+import DrawerSettingsSection from './DrawerSettingsSection';
 import DrawerThemes from './DrawerThemes';
 import DrawerWidgets from './DrawerWidgets';
 
@@ -26,7 +27,7 @@ function DashboardUIDrawer() {
         <Drawer
             opened={opened}
             onClose={() => setOpened(false)}
-            padding="xl"
+            // padding="xl"
             size="xl"
             position="right"
             // overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
@@ -48,8 +49,8 @@ function DashboardUIDrawer() {
                             })}
                         >
                             <DrawerPresets />
-                            <div style={{ height: window.outerHeight/3, background: "orange"}}>
-                                dfg
+                            <div style={{ height: window.outerHeight/3}}>
+                                <DrawerSettingsSection />
                             </div>
                         </Stack>
                     </Tabs.Panel>
@@ -63,8 +64,8 @@ function DashboardUIDrawer() {
                             })}
                         >
                             <DrawerWidgets />
-                            <div style={{ height: window.outerHeight/3, background: "orange"}}>
-                                dfg
+                            <div style={{ height: window.outerHeight/3}}>
+                                <DrawerSettingsSection />
                             </div>
                         </Stack>
                     </Tabs.Panel>
