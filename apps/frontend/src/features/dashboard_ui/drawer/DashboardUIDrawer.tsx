@@ -15,6 +15,10 @@ const useStyles = createStyles((theme) => ({
     },
     drawerTabs: {
 
+    },
+    drawerShareContainer: {
+        boxShadow: '0px -2px 5px gray',
+        height: "500px",
     }
 }));
 
@@ -33,7 +37,7 @@ function DashboardUIDrawer() {
             // overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
         >
 
-            <div style={{ height: (window.outerHeight/3)*2}}>
+            <div>
                 <Tabs defaultValue="presets" color="orange">
                     <Tabs.List grow>
                         <Tabs.Tab value="presets" className={classes.drawerTabs} >PRESETS</Tabs.Tab>
@@ -49,7 +53,7 @@ function DashboardUIDrawer() {
                             })}
                         >
                             <DrawerPresets />
-                            <div style={{ height: window.outerHeight/3}}>
+                            <div style={{ height: (window.outerHeight/3)}} className={classes.drawerShareContainer}>
                                 <DrawerSettingsSection />
                             </div>
                         </Stack>
@@ -64,7 +68,7 @@ function DashboardUIDrawer() {
                             })}
                         >
                             <DrawerWidgets />
-                            <div style={{ height: window.outerHeight/3}}>
+                            <div style={{ height: window.outerHeight/3 }} className={classes.drawerShareContainer}>
                                 <DrawerSettingsSection />
                             </div>
                         </Stack>
