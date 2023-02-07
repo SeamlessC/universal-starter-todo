@@ -1,5 +1,6 @@
-import { Card, Center, Checkbox, createStyles, Grid, Text } from '@mantine/core';
+import { Card, Center, Checkbox, createStyles, Grid, Popover, ScrollArea, Text } from '@mantine/core';
 import AdReport from '../../assets/ad_report.png';
+import DrawerPresets from './drawer/DrawerPresets';
 
 const useStyles = createStyles((theme) => ({
     gridBottomBorder: {
@@ -54,10 +55,25 @@ function DashboardAccordionData(accordionData: { type: string, data1: { name: st
                             accordionData.data1.map((e, i) => {
                                 return (
                                     <Grid.Col span={6} key={i} >
-                                        <Card shadow="sm" p="lg" radius="md" withBorder className={classes.widgetCard}>
+                                        {/* <Card shadow="sm" p="lg" radius="md" withBorder className={classes.widgetCard}>
                                             <img src={AdReport} width={30} />
                                             <Text style={{color: theme.colors.gray[7]}}>{e.name}</Text>
-                                        </Card>
+                                        </Card> */}
+
+                                        <Popover width={430} position="bottom" withArrow shadow="md">
+                                            <Popover.Target>
+                                                <Card shadow="sm" p="lg" radius="md" withBorder className={classes.widgetCard}>
+                                                    <img src={AdReport} width={30} />
+                                                    <Text style={{color: theme.colors.gray[7]}}>{e.name}</Text>
+                                                </Card>
+                                            </Popover.Target>
+                                            <Popover.Dropdown>
+                                                <ScrollArea style={{height: "400px"}}>
+                                                    <DrawerPresets showBody='default' popUpLabel={e.name} />
+                                                </ScrollArea>
+                                            </Popover.Dropdown>
+                                        </Popover>
+
                                     </Grid.Col>
                                 );
                             })

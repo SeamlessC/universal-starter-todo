@@ -52,11 +52,20 @@ const presetInfo = [
 ];
 
 
-const DrawerPresets = ( set: {showBody: string }) => {
+const DrawerPresets = ( set: {showBody: string, popUpLabel: string|null }) => {
   const { classes, theme } = useStyles();
 
   return (
     <div className={classes.presetContainer}>
+      {
+        set.popUpLabel != null ? 
+         <Group style={{marginBottom: "10px"}}>
+            <img src={AdReport} width={30} />
+            <Text>{set.popUpLabel}</Text>
+         </Group>
+        : null
+      }
+
       <TextInput
         className={classes.search}
         placeholder="Search"
