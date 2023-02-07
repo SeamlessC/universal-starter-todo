@@ -8,11 +8,20 @@ const useStyles = createStyles((theme) => ({
     },
     widgetGrid: {
         margin: "0 6%",
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            margin: 0,
+            padding: 0,
+        },
     },
     widgetCard: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            flexDirection: "row",
+            padding: "5px 8px"
+        },
+        height: "100%",
     }
 })); 
 
@@ -40,11 +49,11 @@ function DashboardAccordionData(accordionData: { type: string, data1: { name: st
                     );
                 })
             : ( accordionData.type == 'widget' ? 
-                    <Grid className={classes.widgetGrid}>
+                    <Grid className={classes.widgetGrid} gutter="lg">
                         {
                             accordionData.data1.map((e, i) => {
                                 return (
-                                    <Grid.Col span={6} key={i}>
+                                    <Grid.Col span={6} key={i} >
                                         <Card shadow="sm" p="lg" radius="md" withBorder className={classes.widgetCard}>
                                             <img src={AdReport} width={30} />
                                             <Text style={{color: theme.colors.gray[7]}}>{e.name}</Text>
