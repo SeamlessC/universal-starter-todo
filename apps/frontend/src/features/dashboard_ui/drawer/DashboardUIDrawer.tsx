@@ -25,6 +25,7 @@ const useStyles = createStyles((theme) => ({
 function DashboardUIDrawer() {
   const [opened, setOpened] = useState(false);
   const { classes, theme } = useStyles();
+  const [ showBody, setShowBody ] = useState("default")
   
   return (
     <>
@@ -52,9 +53,9 @@ function DashboardUIDrawer() {
                                 height: window.innerHeight-100 
                             })}
                         >
-                            <DrawerPresets />
+                            <DrawerPresets showBody={showBody}/>
                             <div style={{ height: (window.outerHeight/3)}} className={classes.drawerShareContainer}>
-                                <DrawerSettingsSection />
+                                <DrawerSettingsSection setShowBody={setShowBody} />
                             </div>
                         </Stack>
                     </Tabs.Panel>
@@ -67,9 +68,9 @@ function DashboardUIDrawer() {
                                 height: window.innerHeight-100 
                             })}
                         >
-                            <DrawerWidgets />
+                            <DrawerWidgets showBody={showBody}/>
                             <div style={{ height: window.outerHeight/3 }} className={classes.drawerShareContainer}>
-                                <DrawerSettingsSection />
+                                <DrawerSettingsSection setShowBody={setShowBody} />
                             </div>
                         </Stack>
                     </Tabs.Panel>

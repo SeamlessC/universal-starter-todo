@@ -2,6 +2,8 @@ import { Anchor, createStyles, TextInput } from '@mantine/core'
 import DashboardAccordion from '../DashboardAccordion'
 import Search from '../../../assets/search.png';
 import AdReport from '../../../assets/ad_report.png';
+import FixDashboardErrors from './drawer-integrations/FixDashboardErrors';
+import SaveAsTemplate from './drawer-integrations/SaveAsTemplate';
 
 const useStyles = createStyles((theme) => ({
   search: {
@@ -42,7 +44,7 @@ const widgetInfo = [
   },
 ];
 
-function DrawerWidgets() {
+function DrawerWidgets(drawerInfo: {showBody: string}) {
   const { classes, theme } = useStyles()
 
   return (
@@ -53,7 +55,16 @@ function DrawerWidgets() {
         icon={<img src={Search} width={20} />}
       />
 
-      <DashboardAccordion type='widget' displayInfo={widgetInfo} />
+      {
+        drawerInfo.showBody == "default" ?
+          <DashboardAccordion type='widget' displayInfo={widgetInfo} />
+        : drawerInfo.showBody == "Fix Dashboard Errors" ?
+          <FixDashboardErrors /> 
+        : drawerInfo.showBody == "Save As Template" ?
+          <SaveAsTemplate />
+        : <div></div>   
+      }
+      {/* <DashboardAccordion type='widget' displayInfo={widgetInfo} /> */}
     </div>
   )
 }

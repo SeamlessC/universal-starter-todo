@@ -29,7 +29,7 @@ const useStyle = createStyles((theme) => ({
   },
 }))
 
-function DrawerSettingsSection() {
+function DrawerSettingsSection(drawerSettings: {setShowBody: any}) {
   const { classes, theme } = useStyle()
 
   return (
@@ -62,10 +62,10 @@ function DrawerSettingsSection() {
             </Popover.Target>
             <Popover.Dropdown>
             <Stack justify="space-around" spacing="xs" sx={(theme) => ({ backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0], })}>
-              <DrawerPopupBtn label="Fix Dashboard Errors" icon={ShareIcon} />
-              <DrawerPopupBtn label="Manage Integrations" icon={ShareIcon} />
-              <DrawerPopupBtn label="Clone Dashboard" icon={ShareIcon} />
-              <DrawerPopupBtn label="Save As Template" icon={ShareIcon} />
+              <DrawerPopupBtn label="Fix Dashboard Errors" icon={ShareIcon} setShowBody={drawerSettings.setShowBody} />
+              <DrawerPopupBtn label="Manage Integrations" icon={ShareIcon} setShowBody={drawerSettings.setShowBody} />
+              <DrawerPopupBtn label="Clone Dashboard" icon={ShareIcon} setShowBody={drawerSettings.setShowBody} />
+              <DrawerPopupBtn label="Save As Template" icon={ShareIcon} setShowBody={drawerSettings.setShowBody} />
             </Stack>
             </Popover.Dropdown>
           </Popover>

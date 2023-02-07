@@ -10,11 +10,11 @@ const useStyle = createStyles((theme) => ({
     },
 }))
 
-function DrawerPopupBtn( info: {label: string, icon: string} ) {
+function DrawerPopupBtn( info: {label: string, icon: string, setShowBody: any} ) {
   const { classes, theme } = useStyle()
 
   return (
-    <UnstyledButton>
+    <UnstyledButton onClick={() => info.setShowBody(info.label)}>
         <Group>
             <img src={info.icon} width={20} />
             <Text className={classes.popupText}>{info.label}</Text>

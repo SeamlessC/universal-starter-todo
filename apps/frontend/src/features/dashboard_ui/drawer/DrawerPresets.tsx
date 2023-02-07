@@ -3,6 +3,8 @@ import Search from '../../../assets/search.png';
 import FacebookIcon from '../../../assets/facebook.png';
 import AdReport from '../../../assets/ad_report.png';
 import DashboardAccordion from '../DashboardAccordion';
+import FixDashboardErrors from './drawer-integrations/FixDashboardErrors';
+import SaveAsTemplate from './drawer-integrations/SaveAsTemplate';
 
 const useStyles = createStyles((theme) => ({
   search: {
@@ -50,7 +52,7 @@ const presetInfo = [
 ];
 
 
-const DrawerPresets = () => {
+const DrawerPresets = ( set: {showBody: string }) => {
   const { classes, theme } = useStyles();
 
   return (
@@ -61,12 +63,21 @@ const DrawerPresets = () => {
         icon={<img src={Search} width={20} />}
       />
 
-      <DashboardAccordion type='preset' displayInfo={presetInfo} />
-
-      <Group className={classes.navToIntegrateLink}>
-        <Text>Need to connect more integrations?</Text>
-        <Anchor>Go To integrations</Anchor>
-      </Group>
+      {
+        set.showBody == "default" ?
+          <div>
+            <DashboardAccordion type='preset' displayInfo={presetInfo} />
+            <Group className={classes.navToIntegrateLink}>
+              <Text>Need to connect more integrations?</Text>
+              <Anchor>Go To integrations</Anchor>
+            </Group>
+          </div>
+        : set.showBody == "Fix Dashboard Errors" ?
+          <FixDashboardErrors /> 
+        : set.showBody == "Save As Template" ?
+          <SaveAsTemplate />
+        : <div></div>   
+      }
     </div>
   )
 }
