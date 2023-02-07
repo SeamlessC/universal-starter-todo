@@ -31,8 +31,51 @@ function DashboardUIDrawer() {
             position="right"
             // overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
         >
+
+            <div style={{ height: (window.outerHeight/3)*2}}>
+                <Tabs defaultValue="presets" color="orange">
+                    <Tabs.List grow>
+                        <Tabs.Tab value="presets" className={classes.drawerTabs} >PRESETS</Tabs.Tab>
+                        <Tabs.Tab value="widgets" className={classes.drawerTabs} >WIDGETS</Tabs.Tab>
+                        <Tabs.Tab value="themes" className={classes.drawerTabs} >THEMES</Tabs.Tab>
+                    </Tabs.List>
+                    <Tabs.Panel value="presets" pt="xs">
+                        <Stack 
+                            justify="space-between" 
+                            spacing="xs" sx={(theme) => ({ 
+                                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white, 
+                                height: window.innerHeight-100 
+                            })}
+                        >
+                            <DrawerPresets />
+                            <div style={{ height: window.outerHeight/3, background: "orange"}}>
+                                dfg
+                            </div>
+                        </Stack>
+                    </Tabs.Panel>
+
+                    <Tabs.Panel value="widgets" pt="xs">
+                        <Stack 
+                            justify="space-between" 
+                            spacing="xs" sx={(theme) => ({ 
+                                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white, 
+                                height: window.innerHeight-100 
+                            })}
+                        >
+                            <DrawerWidgets />
+                            <div style={{ height: window.outerHeight/3, background: "orange"}}>
+                                dfg
+                            </div>
+                        </Stack>
+                    </Tabs.Panel>
+
+                    <Tabs.Panel value="themes" pt="xs">
+                        <DrawerThemes />
+                    </Tabs.Panel>
+                </Tabs>
+            </div>
             
-            <Stack 
+            {/* <Stack 
                 justify="space-between" 
                 spacing="xs" sx={(theme) => ({ 
                     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white, 
@@ -48,7 +91,18 @@ function DashboardUIDrawer() {
                         </Tabs.List>
 
                         <Tabs.Panel value="presets" pt="xs">
-                            <DrawerPresets />
+                            <Stack 
+                                justify="space-between" 
+                                spacing="xs" sx={(theme) => ({ 
+                                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white, 
+                                    height: window.innerHeight-100 
+                                })}
+                            >
+                                <DrawerPresets />
+                            <div style={{ height: window.outerHeight/3, background: "orange"}}>
+                                dfg
+                            </div>
+                            </Stack>
                         </Tabs.Panel>
 
                         <Tabs.Panel value="widgets" pt="xs">
@@ -60,10 +114,7 @@ function DashboardUIDrawer() {
                         </Tabs.Panel>
                     </Tabs>
                 </div>
-                <div style={{ height: window.outerHeight/3, background: "orange"}}>
-                    dfg
-                </div>
-            </Stack>
+            </Stack> */}
         </Drawer>
 
         <ActionIcon size="lg" variant="light" className={classes.drawerBtn}>

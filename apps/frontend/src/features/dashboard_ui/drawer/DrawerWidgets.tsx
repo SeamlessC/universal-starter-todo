@@ -25,8 +25,6 @@ const widgetInfo = [
       {name: "Gauge", icon: AdReport},
       {name: "Pie Chart", icon: AdReport},
       {name: "Trend", icon: AdReport},
-      {name: "Stacked Columns", icon: AdReport},
-      {name: "Gauge", icon: AdReport},
     ],
   },
   {
@@ -45,7 +43,7 @@ function DrawerWidgets() {
   const { classes, theme } = useStyles()
 
   return (
-    <>
+    <div>
       <TextInput
         className={classes.search}
         placeholder="Search"
@@ -53,7 +51,7 @@ function DrawerWidgets() {
       />
 
       <DashboardAccordion type='widget' displayInfo={widgetInfo} />
-    </>
+    </div>
   )
 }
 
