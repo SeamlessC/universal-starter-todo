@@ -1,4 +1,4 @@
-import { Anchor, createStyles, Group, Text, TextInput  } from '@mantine/core'
+import { Anchor, createStyles, Group, ScrollArea, Text, TextInput  } from '@mantine/core'
 import Search from '../../../assets/search.png';
 import FacebookIcon from '../../../assets/facebook.png';
 import AdReport from '../../../assets/ad_report.png';
@@ -56,38 +56,40 @@ const DrawerPresets = ( set: {showBody: string, popUpLabel: string|null }) => {
   const { classes, theme } = useStyles();
 
   return (
-    <div className={classes.presetContainer}>
-      {
-        set.popUpLabel != null ? 
-         <Group style={{marginBottom: "10px"}}>
-            <img src={AdReport} width={30} />
-            <Text>{set.popUpLabel}</Text>
-         </Group>
-        : null
-      }
-
-      <TextInput
-        className={classes.search}
-        placeholder="Search"
-        icon={<img src={Search} width={20} />}
-      />
-
-      {
-        set.showBody == "default" ?
-          <div>
-            <DashboardAccordion type='preset' displayInfo={presetInfo} />
-            <Group className={classes.navToIntegrateLink}>
-              <Text>Need to connect more integrations?</Text>
-              <Anchor>Go To integrations</Anchor>
-            </Group>
-          </div>
-        : set.showBody == "Fix Dashboard Errors" ?
-          <FixDashboardErrors /> 
-        : set.showBody == "Save As Template" ?
-          <SaveAsTemplate />
-        : <div></div>   
-      }
-    </div>
+    <ScrollArea>
+      <div className={classes.presetContainer}>
+        {
+          set.popUpLabel != null ? 
+           <Group style={{marginBottom: "10px"}}>
+              <img src={AdReport} width={30} />
+              <Text>{set.popUpLabel}</Text>
+           </Group>
+          : null
+        }
+  
+        <TextInput
+          className={classes.search}
+          placeholder="Search"
+          icon={<img src={Search} width={20} />}
+        />
+  
+        {
+          set.showBody == "default" ?
+            <div>
+              <DashboardAccordion type='preset' displayInfo={presetInfo} />
+              <Group className={classes.navToIntegrateLink}>
+                <Text>Need to connect more integrations?</Text>
+                <Anchor>Go To integrations</Anchor>
+              </Group>
+            </div>
+          : set.showBody == "Fix Dashboard Errors" ?
+            <FixDashboardErrors /> 
+          : set.showBody == "Save As Template" ?
+            <SaveAsTemplate />
+          : <div></div>   
+        }
+      </div>
+    </ScrollArea>
   )
 }
 

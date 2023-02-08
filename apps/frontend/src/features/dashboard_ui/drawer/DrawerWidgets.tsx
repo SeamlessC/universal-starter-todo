@@ -1,4 +1,4 @@
-import { Anchor, createStyles, TextInput } from '@mantine/core'
+import { Anchor, createStyles, ScrollArea, TextInput } from '@mantine/core'
 import DashboardAccordion from '../DashboardAccordion'
 import Search from '../../../assets/search.png';
 import AdReport from '../../../assets/ad_report.png';
@@ -48,24 +48,26 @@ function DrawerWidgets(drawerInfo: {showBody: string}) {
   const { classes, theme } = useStyles()
 
   return (
-    <div className={classes.drawerContainer}>
-      <TextInput
-        className={classes.search}
-        placeholder="Search"
-        icon={<img src={Search} width={20} />}
-      />
-
-      {
-        drawerInfo.showBody == "default" ?
-          <DashboardAccordion type='widget' displayInfo={widgetInfo} />
-        : drawerInfo.showBody == "Fix Dashboard Errors" ?
-          <FixDashboardErrors /> 
-        : drawerInfo.showBody == "Save As Template" ?
-          <SaveAsTemplate />
-        : <div></div>   
-      }
-      {/* <DashboardAccordion type='widget' displayInfo={widgetInfo} /> */}
-    </div>
+    <ScrollArea>
+      <div className={classes.drawerContainer}>
+        <TextInput
+          className={classes.search}
+          placeholder="Search"
+          icon={<img src={Search} width={20} />}
+        />
+  
+        {
+          drawerInfo.showBody == "default" ?
+            <DashboardAccordion type='widget' displayInfo={widgetInfo} />
+          : drawerInfo.showBody == "Fix Dashboard Errors" ?
+            <FixDashboardErrors /> 
+          : drawerInfo.showBody == "Save As Template" ?
+            <SaveAsTemplate />
+          : <div></div>   
+        }
+        {/* <DashboardAccordion type='widget' displayInfo={widgetInfo} /> */}
+      </div>
+    </ScrollArea>
   )
 }
 
