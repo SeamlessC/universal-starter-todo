@@ -3,7 +3,7 @@ import { useState } from 'react'
 import rightArrow from '../../../assets/right-arrow.png';
 import DrawerPresets from './DrawerPresets';
 import DrawerSettingsSection from './DrawerSettingsSection';
-import DrawerThemes from './DrawerThemes';
+import DrawerThemes from './drawer-themes/DrawerThemes';
 import DrawerWidgets from './DrawerWidgets';
 
 const useStyles = createStyles((theme) => ({
@@ -37,7 +37,6 @@ function DashboardUIDrawer() {
             position="right"
             // overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
         >
-
             <div>
                 <Tabs defaultValue="presets" color="orange">
                     <Tabs.List grow>
@@ -53,7 +52,7 @@ function DashboardUIDrawer() {
                                 height: window.innerHeight-100 
                             })}
                         >
-                            <DrawerPresets showBody={showBody}/>
+                            <DrawerPresets showBody={showBody} popUpLabel={null}/>
                             <div style={{ height: (window.outerHeight/3)}} className={classes.drawerShareContainer}>
                                 <DrawerSettingsSection setShowBody={setShowBody} />
                             </div>
@@ -76,7 +75,19 @@ function DashboardUIDrawer() {
                     </Tabs.Panel>
 
                     <Tabs.Panel value="themes" pt="xs">
-                        <DrawerThemes />
+                        {/* <DrawerThemes /> */}
+                        <Stack 
+                            justify="space-between" 
+                            spacing="xs" sx={(theme) => ({ 
+                                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white, 
+                                height: window.innerHeight-100 
+                            })}
+                        >
+                            <DrawerThemes showBody={showBody} />
+                            <div style={{ height: window.outerHeight/3 }} className={classes.drawerShareContainer}>
+                                <DrawerSettingsSection setShowBody={setShowBody} />
+                            </div>
+                        </Stack>
                     </Tabs.Panel>
                 </Tabs>
             </div>

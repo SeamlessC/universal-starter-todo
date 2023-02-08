@@ -1,5 +1,6 @@
 import { Card, Center, Checkbox, createStyles, Grid, Popover, ScrollArea, Text } from '@mantine/core';
 import AdReport from '../../assets/ad_report.png';
+import ThemeImg from '../../assets/themeImg.png'
 import DrawerPresets from './drawer/DrawerPresets';
 
 const useStyles = createStyles((theme) => ({
@@ -21,6 +22,15 @@ const useStyles = createStyles((theme) => ({
         [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
             flexDirection: "row",
             padding: "5px 8px"
+        },
+        height: "100%",
+    },
+    themeCard: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            flexDirection: "row",
         },
         height: "100%",
     }
@@ -79,9 +89,23 @@ function DashboardAccordionData(accordionData: { type: string, data1: { name: st
                             })
                         }
                     </Grid>
-            : 
-                <div>d</div>
-            )
+            : ( accordionData.type == 'presentTheme' ? 
+                <Grid className={classes.widgetGrid} gutter="lg">
+                    {
+                        accordionData.data1.map((e, i) => {
+                            return (
+                                <Grid.Col span={6} key={i} >
+                                    <Card shadow="sm" p="lg" radius="md" withBorder className={classes.themeCard}>
+                                        <img src={ThemeImg} />
+                                    </Card>
+                                </Grid.Col>
+                            );
+                        })
+                    }
+                </Grid>
+            : ( accordionData.type == 'customeTheme' ? 
+                <div>Custome theme</div> 
+            : null)))
         }
     </div>
   );
