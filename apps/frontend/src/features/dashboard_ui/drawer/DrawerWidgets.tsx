@@ -48,7 +48,7 @@ function DrawerWidgets(drawerInfo: {showBody: string}) {
   const { classes, theme } = useStyles()
 
   return (
-    <ScrollArea>
+    // <ScrollArea>
       <div className={classes.drawerContainer}>
         <TextInput
           className={classes.search}
@@ -67,7 +67,7 @@ function DrawerWidgets(drawerInfo: {showBody: string}) {
         }
         {/* <DashboardAccordion type='widget' displayInfo={widgetInfo} /> */}
       </div>
-    </ScrollArea>
+    // </ScrollArea>
   )
 }
 
