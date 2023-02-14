@@ -2,7 +2,7 @@ import { createStyles, Table } from '@mantine/core'
 
 const useStyle = createStyles((theme) => ({
     marginTop: {
-        marginTop: "5%",
+        marginTop: "0%",
     }
 }))
 

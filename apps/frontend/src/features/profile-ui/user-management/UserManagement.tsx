@@ -20,7 +20,6 @@ const useStyle = createStyles((theme) => ({
 function UserManagement() {
   const { classes, theme } = useStyle()
   const [opened, setOpened] = useState(false);
-  const [noOfPendingRequests, setNoOfPendingRequests] = useState(2)
 
   const pendingTableHeads = [
     "Email Address",
@@ -37,10 +36,8 @@ function UserManagement() {
 
   const PendingElements = [
     { eAddress: "abc@gmail.com", date: "12/12/2323",},
-    { eAddress: "123@gmail.com", date: "12/12/2323",},
     { eAddress: "maneesha@gmail.com", date: "12/12/2323",},
     { eAddress: "seamlessC@gmail.com", date: "12/12/2323",},
-    { eAddress: "lllkkkjjjhh@gmail.com", date: "12/12/2323",},
   ];
 
   const UserElements = [
@@ -100,7 +97,7 @@ function UserManagement() {
       {/* Collapse Link */}
       <div onClick={() => setOpened((o) => !o)} className={classes.collapseLink}>
         <Link 
-          label={`Pending Requests (${noOfPendingRequests<10 ? `0${noOfPendingRequests}` : noOfPendingRequests})`}
+          label={`Pending Requests (${PendingElements.length<10 ? `0${PendingElements.length}` : PendingElements.length})`}
           underline={true}
         />
       </div>
@@ -108,7 +105,7 @@ function UserManagement() {
       {/* Collapse Body */}
       <Collapse in={opened}>
         <ScrollArea 
-          style={{ height: "250px" }} 
+          style={{ height: "200px" }} 
           offsetScrollbars scrollbarSize={6} 
           scrollHideDelay={1500}
         > 
