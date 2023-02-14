@@ -1,11 +1,24 @@
-import { ActionIcon, Button, CloseButton, Collapse, Group, ScrollArea, Table, Text } from '@mantine/core'
-import React, { useState } from 'react'
+import { ActionIcon, CloseButton, Collapse, createStyles, Group, Input, ScrollArea,} from '@mantine/core'
+import { useState } from 'react'
 import CustomeLink from '../Links';
 import Link from '../Links';
 import CustomTable from './CustomTable';
 import DeleteIcon from '../../../assets/delete-icon.png'
+import SearchIcon from '../../../assets/search-icon.png'
+import WhiteSharehIcon from '../../../assets/white-share-icon.png'
+import IconBtn from '../IconBtn';
+
+const useStyle = createStyles((theme) => ({
+  collapseLink: {
+    marginTop: "3%",
+  },
+  table: {
+    marginTop: "5%",
+  }
+}))
 
 function UserManagement() {
+  const { classes, theme } = useStyle()
   const [opened, setOpened] = useState(false);
   const [noOfPendingRequests, setNoOfPendingRequests] = useState(2)
 
@@ -74,12 +87,25 @@ function UserManagement() {
   
   return (
     <div>
-      <div onClick={() => setOpened((o) => !o)}>
+      {/* Search& share */}
+      <Group position="apart">
+        <Input
+          icon={<img src={SearchIcon} width={20} />}
+          variant="filled"
+          placeholder="Your email"
+        />
+        <IconBtn label="Share" icon={WhiteSharehIcon} />
+      </Group>
+
+      {/* Collapse Link */}
+      <div onClick={() => setOpened((o) => !o)} className={classes.collapseLink}>
         <Link 
           label={`Pending Requests (${noOfPendingRequests<10 ? `0${noOfPendingRequests}` : noOfPendingRequests})`}
           underline={true}
         />
       </div>
+
+      {/* Collapse Body */}
       <Collapse in={opened}>
         <ScrollArea 
           style={{ height: "250px" }} 
@@ -92,22 +118,20 @@ function UserManagement() {
           />
         </ScrollArea>  
       </Collapse>
+
+      {/* User Info Table */}
       <ScrollArea 
         style={{ height: "250px" }} 
         offsetScrollbars scrollbarSize={6} 
         scrollHideDelay={1500}
+        className={classes.table}
       >
         <CustomTable 
           rows={UserTableBody}
           Heads={UserTableHeads}
         />
       </ScrollArea>
-      {/* <div>
-        <CustomTable 
-          rows={UserTableBody}
-          Heads={UserTableHeads}
-        />
-      </div> */}
+
     </div>
   )
 }
