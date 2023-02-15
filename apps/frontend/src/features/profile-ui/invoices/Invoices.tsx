@@ -1,4 +1,4 @@
-import { Anchor, createStyles, Group, Table, Title } from '@mantine/core'
+import { Anchor, createStyles, Group, ScrollArea, Table, Title } from '@mantine/core'
 import DateIcon from '../../../assets/date-icon.png'
 import DocIcon from '../../../assets/doc-icon.png'
 import DollarIcon from '../../../assets/dollar-icon.png'
@@ -91,10 +91,12 @@ function Invoices() {
           </Title>
         </Group>
       </Group>
-      <Table withBorder withColumnBorders className={classes.table}>
-        <thead style={{background: `${theme.colors.gray[2]}`}}>{ths}</thead>
-        <tbody>{rows}</tbody>
-      </Table>
+      <ScrollArea>
+        <Table withBorder withColumnBorders className={classes.table}>
+          <thead style={{background: `${theme.colors.gray[2]}`}}>{ths}</thead>
+          <tbody>{rows}</tbody>
+        </Table>
+      </ScrollArea>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { Center, createStyles, Group, Input, Switch, Text } from '@mantine/core'
+import { Center, createStyles, Group, Input, ScrollArea, Switch, Text } from '@mantine/core'
 import React, { useState } from 'react'
 import Btn from '../Btn'
 import SecuritySettingsTable from './SecuritySettingsTable'
@@ -60,11 +60,13 @@ function SecuritySetting() {
         : null
       }
 
-      {
-        ipAccess == true ?
-          <SecuritySettingsTable heads={ipAccessHeads} />
-        : <SecuritySettingsTable heads={AccessLogHeads} isAccessLog={true} />
-      }
+      <ScrollArea>
+        {
+          ipAccess == true ?
+            <SecuritySettingsTable heads={ipAccessHeads} />
+          : <SecuritySettingsTable heads={AccessLogHeads} isAccessLog={true} />
+        }
+      </ScrollArea>
 
       <Center className={classes.marginTop}>
         <Btn 

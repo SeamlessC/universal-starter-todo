@@ -25,9 +25,6 @@ const useStyle = createStyles((theme) => ({
             display: "none",
         },
     },
-    drawer: {
-        display: "none",
-    },
     smallView: {
         display: "none",
         [`@media (max-width: ${theme.breakpoints.lg}px)`]: {
