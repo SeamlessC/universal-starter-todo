@@ -2,6 +2,7 @@ import { Anchor, Card, Center, Checkbox, createStyles, Divider, Grid, Text, Titl
 import { ca } from 'date-fns/locale'
 import React from 'react'
 import Btn from '../Btn'
+import CustomeLink from '../Links'
 import BillingInfo from './BillingInfo'
 
 const useStyle = createStyles((theme) => ({
@@ -61,9 +62,10 @@ function PlanAndBilling() {
         </Center>
         <BillingInfo />
         <Center className={classes.marginTop}>
-          <Anchor href="https://mantine.dev/" target="_blank">
-            Mantine docs
-          </Anchor>
+          <CustomeLink 
+            label="Cancel Plan"
+            underline={true}
+          />
         </Center>
       </div>
     </div>
