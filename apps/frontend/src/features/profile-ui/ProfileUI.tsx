@@ -1,4 +1,4 @@
-import { Box, createStyles, Grid, Group, NavLink, ScrollArea, Stack, Title } from '@mantine/core';
+import { Box, createStyles, Grid, Group, MediaQuery, NavLink, Text, Stack, Title, Burger, Drawer, Button } from '@mantine/core';
 import { useState } from 'react';
 import AccountAccess from './account-access/AccountAccess';
 import Invoices from './invoices/Invoices';
@@ -20,6 +20,19 @@ const useStyle = createStyles((theme) => ({
     },
     navContainer: {
         // height: "100%",
+        display: "block",
+        [`@media (max-width: ${theme.breakpoints.lg}px)`]: {
+            display: "none",
+        },
+    },
+    drawer: {
+        display: "none",
+    },
+    smallView: {
+        display: "none",
+        [`@media (max-width: ${theme.breakpoints.lg}px)`]: {
+            display: "block",
+        },
     }
 }))
 
@@ -36,6 +49,7 @@ const data = [
 export function ProfileUI() {
   const { classes, theme } = useStyle()
   const [active, setActive] = useState(0)
+  const [opened, setOpened] = useState(false);
 
   var name = "Maneesha";
 
@@ -45,9 +59,40 @@ export function ProfileUI() {
             <Title>Hello! Good Evening, </Title>
             <Title weight={100}>{name}</Title>
         </Group>
+
+        <Burger
+            opened={opened}
+            onClick={() => {
+                setOpened((o) => !o)
+            }}
+            className={classes.smallView}
+        />
+        <Drawer
+            opened={opened}
+            onClose={() => setOpened(false)}
+            title="Register"
+            padding="xl"
+            size="xl"
+        >
+            <Stack justify="space-between">
+                {
+                    data.map((item, index) => (
+                        <NavLink
+                            key={item.label}
+                            active={index === active}
+                            label={item.label}
+                            onClick={() => {
+                                setActive(index)
+                                setOpened(false)
+                            }}
+                        />
+                    ))
+                }
+            </Stack>
+        </Drawer>
+
         <Grid className={classes.profileContainer}>
-            <Grid.Col span={3}>
-                {/* <Stack justify="space-between" style={{height: ((window.innerHeight/4)*3)-40}}> */}
+            <Grid.Col md={0} lg={3}>
                 <Stack justify="space-between" className={classes.navContainer}>
                     {
                         data.map((item, index) => (
@@ -56,13 +101,13 @@ export function ProfileUI() {
                               active={index === active}
                               label={item.label}
                               onClick={() => setActive(index)}
-                            //   color="orange"
                             />
                         ))
                     }
                 </Stack>
             </Grid.Col>
-            <Grid.Col span={8}>
+
+            <Grid.Col md={12} lg={8}>
                 <div style={{margin: "4% 0% 4% 4%"}}>
                     {/* <ScrollArea> */}
                         {
