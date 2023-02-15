@@ -52,7 +52,7 @@ function SecuritySetting() {
             <div style={{marginRight: "60px"}}>
               <Btn 
                 label="Add"
-                btnWidth='100px'
+                btnWidth="100px"
               />
             </div>
           }

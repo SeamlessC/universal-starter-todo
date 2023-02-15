@@ -14,6 +14,10 @@ const useStyle = createStyles((theme) => ({
     margin: "auto",
     padding: "200px",
     border: `1px solid ${theme.black}`,
+    [`@media (max-width: ${theme.breakpoints.lg}px)`]: {
+      width: "100%",
+      padding: "10px",
+    },
   },
   marginTop: {
     marginTop: "5%",

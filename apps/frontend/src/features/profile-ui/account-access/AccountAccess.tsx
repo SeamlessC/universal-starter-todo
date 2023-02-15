@@ -10,6 +10,9 @@ const useStyle = createStyles((theme) => ({
   },
   inputBox: {
     margin: "5% 10% 5% 20%",
+    [`@media (max-width: ${theme.breakpoints.lg}px)`]: {
+      margin: "0%",
+    },
   }
 }))
 
