@@ -4,6 +4,7 @@ import twitterIcon from '../../../../assets/twitter.png';
 
 import { DashboardAccordion } from '../../../home/dashboard-add-data-sources/DashboardAccordion';
 import { createStyles } from '@mantine/core';
+import { ConnectMoreDataSources } from './ConnectMoreDataSources';
 
 const useStyles = createStyles((theme) => ({
   dashboardAccordion: {
@@ -12,8 +13,6 @@ const useStyles = createStyles((theme) => ({
 }))
 
 const sourcesTypes = [
-  {label: "Facebook Ads", img: fbIcon},
-  {label: "Facebook Insights", img:fbIcon},
   {label: "Twitter", img: twitterIcon},
   {label: "Custom Data Source", img: customeSources},
 ];
@@ -29,11 +28,18 @@ function ManageIntegrations() {
   const { classes, theme } = useStyles()
 
   return (
+    <div>
       <DashboardAccordion 
-      sourcesInfoData={sourcesInfoData} 
-      sourcesTypes={sourcesTypes} 
-      overrallWidth="100%"
-    />
+        sourcesInfoData={sourcesInfoData} 
+        sourcesTypes={sourcesTypes} 
+        overrallWidth="100%"
+      />
+      <ConnectMoreDataSources 
+        sourcesTypes={sourcesTypes} 
+        InfoData={sourcesInfoData} 
+        overrallWidth="100%"
+      />
+    </div>
   )
 }
 
