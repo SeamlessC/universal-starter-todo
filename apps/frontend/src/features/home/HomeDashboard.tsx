@@ -4,7 +4,12 @@ import { Grid, Container } from "@mantine/core";
 import { ProgressTracker } from "./ProgressTracker";
 import { TemplateGrid } from "./TemplateGrid";
 import { TemplateTypes } from "./TemplateTypes";
+
 import DashboardPreferences from "./dashboard-preferences/DashboardPreferences";
+
+import AddDataSources from "./dashboard-add-data-sources/AddDataSources";
+import Integrations from "../Integrations/Integrations";
+
 
 export function HomeDashboard() {
 	const [templateType, setTemplateType] = useState("periodic");
@@ -42,7 +47,12 @@ export function HomeDashboard() {
 					</Grid.Col>
 				</Grid>
 			</Container>
+
 			<DashboardPreferences />	
+
+			<AddDataSources />
+			<Integrations />
+
 		</div>
 	);
 }
