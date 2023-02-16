@@ -1,4 +1,4 @@
-import { createStyles, Text, ActionIcon } from '@mantine/core'
+import { createStyles, Text, ActionIcon, Button } from '@mantine/core'
 import plus from '../../../../../assets/plus.png';
 
 const useStyle = createStyles((theme) => ({
@@ -6,7 +6,7 @@ const useStyle = createStyles((theme) => ({
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
-      padding: "0 0px"
+      padding: "10px 0px"
     }
   }))
 
@@ -16,9 +16,9 @@ function AccordionFixedData() {
   return (
     <div className={classes.infoContainer}>
         <Text c="dimmed">aeergaer</Text>
-        <ActionIcon>
-            <img src={plus} width={15} />
-        </ActionIcon>
+        <Button variant="outline">
+          Replace
+        </Button>
     </div>
   )
 }
