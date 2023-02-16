@@ -5,6 +5,8 @@ import AdReport from '../../../assets/ad_report.png';
 import DashboardAccordion from '../DashboardAccordion';
 import FixDashboardErrors from './drawer-integrations/FixDashboardErrors';
 import SaveAsTemplate from './drawer-integrations/SaveAsTemplate';
+import ManageIntegrations from './drawer-integrations/ManageIntegrations';
+import CloneDashboard from './drawer-integrations/CloneDashboard';
 
 const useStyles = createStyles((theme) => ({
   search: {
@@ -86,7 +88,9 @@ const DrawerPresets = ( set: {showBody: string, popUpLabel: string|null }) => {
             <FixDashboardErrors /> 
           : set.showBody == "Save As Template" ?
             <SaveAsTemplate />
-          : <div></div>   
+          : set.showBody == "Manage Integrations" ?
+            <ManageIntegrations />
+          : <CloneDashboard /> 
         }
       </div>
     </ScrollArea>
