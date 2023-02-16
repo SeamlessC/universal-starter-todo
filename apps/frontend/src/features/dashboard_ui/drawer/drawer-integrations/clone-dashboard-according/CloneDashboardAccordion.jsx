@@ -21,7 +21,7 @@ function CloneDashboardAccordion({sources, sourcesData}) {
 
   return (
     <Accordion 
-      variant="separated" 
+      variant="filled" 
       defaultValue={sources[0].label}
     >
       {
