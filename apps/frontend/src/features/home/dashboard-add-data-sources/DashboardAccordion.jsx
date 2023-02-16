@@ -62,7 +62,7 @@ export function DashboardAccordion({sourcesTypes, sourcesInfoData, overrallWidth
   const displaySources = (classes) => {
     return sourcesInfo.map((e, i) => {
       return (
-        <div>
+        <div key={i}>
           <div className={classes.infoContainer}>
             <Text c="dimmed">{e.text}</Text>
             <CloseButton aria-label="Close modal" size={18} />
