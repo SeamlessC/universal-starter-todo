@@ -45,10 +45,10 @@ function DashBoardUIHeader() {
                     className={classes.search}
                 />
                 <Grid className={classes.selectionSection}>
-                    <Grid.Col span={4}>
+                    <Grid.Col span={6}>
                         Report For
                     </Grid.Col>
-                    <Grid.Col span={8}>
+                    <Grid.Col span={6}>
                         <Select
                             searchable
                             placeholder="Pick one"
