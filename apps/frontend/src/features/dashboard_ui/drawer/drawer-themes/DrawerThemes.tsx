@@ -5,6 +5,8 @@ import DashboardAccordion from '../../DashboardAccordion';
 import DrawerCustomeThemes from './DrawerCustomeThemes';
 import FixDashboardErrors from '../drawer-integrations/FixDashboardErrors';
 import SaveAsTemplate from '../drawer-integrations/SaveAsTemplate';
+import ManageIntegrations from '../drawer-integrations/ManageIntegrations';
+import CloneDashboard from '../drawer-integrations/CloneDashboard';
 
 const useStyles = createStyles((theme) => ({
   themeContainer: {
@@ -43,7 +45,9 @@ function DrawerThemes(themeInfo: {showBody: string}) {
             <FixDashboardErrors /> 
           : themeInfo.showBody == "Save As Template" ?
             <SaveAsTemplate />
-          : <div></div>   
+          : themeInfo.showBody == "Manage Integrations" ?
+            <ManageIntegrations />
+          : <CloneDashboard />   
         }
         {/* <DashboardAccordion type='widget' displayInfo={widgetInfo} /> */}
       </div>

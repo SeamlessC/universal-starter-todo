@@ -4,6 +4,8 @@ import Search from '../../../assets/search.png';
 import AdReport from '../../../assets/ad_report.png';
 import FixDashboardErrors from './drawer-integrations/FixDashboardErrors';
 import SaveAsTemplate from './drawer-integrations/SaveAsTemplate';
+import ManageIntegrations from './drawer-integrations/ManageIntegrations';
+import CloneDashboard from './drawer-integrations/CloneDashboard';
 
 const useStyles = createStyles((theme) => ({
   search: {
@@ -63,7 +65,9 @@ function DrawerWidgets(drawerInfo: {showBody: string}) {
             <FixDashboardErrors /> 
           : drawerInfo.showBody == "Save As Template" ?
             <SaveAsTemplate />
-          : <div></div>   
+          : drawerInfo.showBody == "Manage Integrations" ?
+            <ManageIntegrations />
+          : <CloneDashboard />   
         }
         {/* <DashboardAccordion type='widget' displayInfo={widgetInfo} /> */}
       </div>
