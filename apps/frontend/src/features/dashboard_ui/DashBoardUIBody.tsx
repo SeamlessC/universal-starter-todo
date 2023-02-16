@@ -4,7 +4,7 @@ import DashboardUIGraph from './DashboardUIGraph';
 
 const useStyles = createStyles((theme) => ({
     typeCard: {
-        margin: "5%",
+        marginTop: "5%",
     },
     
 }));
@@ -47,9 +47,8 @@ function DashBoardUIBody() {
   const { classes, theme } = useStyles();
 
   return (
-    <div>
-        { types(classes) }
-        
+    <div style={{width: "97%"}}>
+        { types(classes) } 
     </div>
   )
 }

@@ -2,7 +2,8 @@ import { Card, createStyles, Image, TextInput, Select, Group, Grid } from '@mant
 
 const useStyles = createStyles((theme) => ({
     dashboardHeader: {
-        borderBottom: `${theme.radius.md}`,
+        borderTopLeftRadius: theme.radius.md,
+        borderTopRightRadius: theme.radius.md,
         boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
         marginTop: "-35px",
         padding: "2% 5%",
@@ -27,7 +28,7 @@ function DashBoardUIHeader() {
   const { classes, theme } = useStyles();
 
   return (
-    <Card.Section>
+    // <Card.Section>
         <div className={classes.dashboardHeader}>
             <Group position="apart" mt="md" mb="xs">
                 <Image
@@ -72,7 +73,7 @@ function DashBoardUIHeader() {
                 </Grid>
             </Group>
         </div>
-    </Card.Section>
+    // </Card.Section>
   )
 }
 
