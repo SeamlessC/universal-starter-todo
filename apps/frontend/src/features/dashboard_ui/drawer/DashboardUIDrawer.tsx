@@ -1,4 +1,4 @@
-import { ActionIcon, Button, createStyles, Drawer, Grid, Stack, Tabs } from '@mantine/core'
+import { ActionIcon, createStyles, Drawer, Stack, Tabs } from '@mantine/core'
 import { useState } from 'react'
 import rightArrow from '../../../assets/right-arrow.png';
 import DrawerPresets from './DrawerPresets';

@@ -1,5 +1,4 @@
-import { createStyles, Text, ActionIcon, Button } from '@mantine/core'
-import plus from '../../../../../assets/plus.png';
+import { createStyles, Text, Button } from '@mantine/core'
 
 const useStyle = createStyles((theme) => ({
     infoContainer: {

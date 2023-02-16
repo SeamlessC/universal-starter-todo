@@ -1,4 +1,3 @@
-import fbIcon from '../../../../assets/facebook.png';
 import customeSources from '../../../../assets/custom-data-sources.png';
 import twitterIcon from '../../../../assets/twitter.png';
 
