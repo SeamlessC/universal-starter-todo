@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Shell from "./features/shell/Shell";
-import { Authentication } from "./features/sign-up/Authentication";
+import { Authentication } from "./features/authentication/Authentication";
 
 const { Suspense } = React;
 

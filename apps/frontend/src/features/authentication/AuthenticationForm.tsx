@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-function AuthenticationForm() {
+function AuthenticationForm(authForm: {type: any}) {
   const { classes } = useStyles();
   const form = useForm({
     initialValues: {
@@ -33,29 +33,35 @@ function AuthenticationForm() {
 
   return (
     <form onSubmit={form.onSubmit(() => {})}>
-      <TextInput 
-        label="First Name" 
-        size="md" 
-        error={form.errors.fName}
-        value={form.values.fName}
-        onChange={(event) => form.setFieldValue('fName', event.currentTarget.value)}
-      />
-      <TextInput 
-        label="Last Name" 
-        size="md" 
-        mt="md"
-        error={form.errors.lName}
-        value={form.values.lName}
-        onChange={(event) => form.setFieldValue('lName', event.currentTarget.value)}
-      />
-      <TextInput 
-        label="Company Website" 
-        size="md" 
-        mt="md"
-        error={form.errors.companyWebsite}
-        value={form.values.companyWebsite}
-        onChange={(event) => form.setFieldValue('companyWebsite', event.currentTarget.value)}
-      />
+
+      {authForm.type === 'register' && (
+        <div>
+          <TextInput 
+            label="First Name" 
+            size="md" 
+            error={form.errors.fName}
+            value={form.values.fName}
+            onChange={(event) => form.setFieldValue('fName', event.currentTarget.value)}
+          />
+          <TextInput 
+            label="Last Name" 
+            size="md" 
+            mt="md"
+            error={form.errors.lName}
+            value={form.values.lName}
+            onChange={(event) => form.setFieldValue('lName', event.currentTarget.value)}
+          />
+          <TextInput 
+            label="Company Website" 
+            size="md" 
+            mt="md"
+            error={form.errors.companyWebsite}
+            value={form.values.companyWebsite}
+            onChange={(event) => form.setFieldValue('companyWebsite', event.currentTarget.value)}
+          />
+        </div>
+      )}
+
       <TextInput 
         label="Email Address" 
         size="md" 
@@ -72,9 +78,10 @@ function AuthenticationForm() {
         value={form.values.password}
         onChange={(event) => form.setFieldValue('password', event.currentTarget.value)}
       />
+      
       <div className={classes.loginBtnContainer}>
         <Btn 
-          label="Start"
+          label={authForm.type == "register" ? "Start" : "Login"}
           btnWidth="80%"
           type="submit"
         />

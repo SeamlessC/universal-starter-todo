@@ -33,8 +33,6 @@ import YoutubeIcon from '../../assets/youtube-icon.png'
       height: "80%",
       width: "70%",
       backgroundSize: 'cover',
-    //   backgroundImage:
-    //     'url(https://images.unsplash.com/photo-1484242857719-4b9144542727?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80)',
       background: theme.white,
       display: "flex",
       justifyContent: "right",
@@ -113,18 +111,10 @@ import YoutubeIcon from '../../assets/youtube-icon.png'
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
       fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     },
-  
-    logo: {
-      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-      width: 120,
-      display: 'block',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
   }));
   
-  export function Authentication() {
-    const { classes, theme } = useStyles();  
+  export function SignUp(auth: {type: any, toggle: any}) {
+    const { classes, theme } = useStyles(); 
 
     return (
       <div className={classes.mainContainer}>
@@ -166,11 +156,11 @@ import YoutubeIcon from '../../assets/youtube-icon.png'
                 Start your 15-day free trial!
               </Title>
 
-              <ScrollArea><AuthenticationForm /></ScrollArea>
+              <ScrollArea><AuthenticationForm type={auth.type} /></ScrollArea>
               
               <Text align="center" mt="md">
                 Have an account?{' '}
-                <Anchor<'a'> href="#" weight={700} onClick={(event) => event.preventDefault()}>
+                <Anchor<'a'> href="#" weight={700} onClick={() => auth.toggle()}>
                   Login
                 </Anchor>
               </Text>
