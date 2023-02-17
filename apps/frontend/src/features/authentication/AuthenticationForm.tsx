@@ -1,6 +1,7 @@
 import { createStyles, PasswordInput, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form';
 import Btn from '../profile-ui/Btn'
+import CustomeLink from '../profile-ui/Links';
 
 const useStyles = createStyles((theme) => ({
   loginBtnContainer: {
@@ -8,6 +9,17 @@ const useStyles = createStyles((theme) => ({
       justifyContent: "center",
       marginTop: "5%",
   },
+  passwordContainer: {
+    position: "relative",
+  },
+  forgotPWLink: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      display: "none",
+    },
+  }
 }));
 
 function AuthenticationForm(authForm: {type: any}) {
@@ -70,14 +82,21 @@ function AuthenticationForm(authForm: {type: any}) {
         value={form.values.email}
         onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
       />
-      <PasswordInput 
-        label="Password" 
-        mt="md" 
-        size="md"
-        error={form.errors.password}
-        value={form.values.password}
-        onChange={(event) => form.setFieldValue('password', event.currentTarget.value)}
-      />
+      <div className={classes.passwordContainer}>
+        {authForm.type === 'login' && (
+          <div className={classes.forgotPWLink}>
+            <CustomeLink label="Forgot your password?" />
+          </div>
+        )}
+        <PasswordInput 
+          label="Password" 
+          mt="md" 
+          size="md"
+          error={form.errors.password}
+          value={form.values.password}
+          onChange={(event) => form.setFieldValue('password', event.currentTarget.value)}
+        />
+      </div>
       
       <div className={classes.loginBtnContainer}>
         <Btn 

@@ -25,6 +25,9 @@ import AuthenticationForm from './AuthenticationForm';
       justifyContent: "center",
       padding: "5% 4%",
       borderRadius: theme.radius.md,
+      [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+        width: "85%",
+      },
     },  
     title: {
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
