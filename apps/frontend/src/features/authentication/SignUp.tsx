@@ -37,7 +37,12 @@ import YoutubeIcon from '../../assets/youtube-icon.png'
       display: "flex",
       justifyContent: "right",
       position: "relative",
-      paddingRight: "5%"
+      paddingRight: "5%",
+      borderRadius: theme.radius.md,
+      [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+        width: "85%",
+        height: "90%",
+      },
     },
     orangeCircularShapeBox: {
         background: theme.colors.orange[6],
