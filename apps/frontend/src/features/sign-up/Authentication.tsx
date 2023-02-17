@@ -16,6 +16,10 @@ import FireIcon from '../../assets/fire-icon.png'
 import GraphIcon from '../../assets/graph-icon.png'
 
 import AuthenticationForm from './AuthenticationForm';
+import CircularImages from './CircularImages';
+import FacebookIcon from '../../assets/facebook-icon.png'
+import TwitterIcon from '../../assets/twitter-icon.png'
+import YoutubeIcon from '../../assets/youtube-icon.png'
   
   const useStyles = createStyles((theme) => ({
     mainContainer: {
@@ -71,10 +75,18 @@ import AuthenticationForm from './AuthenticationForm';
         left: "35%",
         zIndex: 4,
     },
+    circularIcons: {
+      [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+        display: "none",
+      },
+      [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+          display: "none",
+      },
+    },
     listContainer: {
         position: "absolute",
         zIndex: 3,
-        top: "60%",
+        top: "66%",
         left: "6%",
         width: "40%",
         [`@media (max-width: ${theme.breakpoints.md}px)`]: {
@@ -123,7 +135,13 @@ import AuthenticationForm from './AuthenticationForm';
             <div className={classes.imageContainer}>
                 <img src={SignUpImg} className={classes.shadowBox} />
             </div>
-            <img src={GraphIcon} width={70} className={classes.graphImg + " " + classes.shadowBox} />
+            <img src={GraphIcon} width={70} className={classes.graphImg + " " + classes.shadowBox + " " + classes.circularIcons} />
+            <div className={classes.circularIcons}>
+              <CircularImages img={GraphIcon} top="40%" left="6%" />
+              <CircularImages img={FacebookIcon} top="52%" left="8%" size="sm" />
+              <CircularImages img={TwitterIcon} top="55%" left="16%" size="sm" />
+              <CircularImages img={YoutubeIcon} top="45%" left="20%" size="lg" />
+            </div>
             <div className={classes.listContainer}>
                 <List
                     spacing="xs"

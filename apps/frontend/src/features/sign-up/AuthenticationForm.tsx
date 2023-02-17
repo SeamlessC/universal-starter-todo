@@ -1,6 +1,5 @@
 import { createStyles, PasswordInput, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form';
-import React from 'react'
 import Btn from '../profile-ui/Btn'
 
 const useStyles = createStyles((theme) => ({
@@ -25,9 +24,9 @@ function AuthenticationForm() {
 
     validate: {
       email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
-      password: (val) => (val.length < 6 ? 'Password should include at least 6 characters' : null),
-      fName : (val) => (val.length < 3 ? "First name should include at least 3 characters" : null ),
-      lName : (val) => (val.length < 3 ? "First name should include at least 3 characters" : null ),
+      password: (val) => (val.length < 6 ? 'Password must be at least 6 characters' : null),
+      fName : (val) => (val.length < 3 ? "First name must be at least 3 characters" : null ),
+      lName : (val) => (val.length < 3 ? "Last name must be at least 3 characters" : null ),
       companyWebsite : (val) => (val.length <= 3 ? "Enter valid value" : null ),
     },
   });
