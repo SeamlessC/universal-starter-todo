@@ -18,6 +18,7 @@ function Btn(btn: {
     btnWidth?: string,
     marginTop?: string,
     margin?: string,
+    type?: any,
   }) {
 
   const { classes, theme } = useStyle()
@@ -28,6 +29,7 @@ function Btn(btn: {
       disabled={btn.disabled ? true : false}
       className={classes.btnWidthSmall}
       style= {{width: btn.btnWidth, marginTop: btn.marginTop, margin: btn.margin}}
+      type={btn.type != null ? btn.type : "button"}
     >
         {btn.label}
     </Button>

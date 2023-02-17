@@ -1,20 +1,21 @@
 import {
     Paper,
     createStyles,
-    TextInput,
-    PasswordInput,
     Title,
     Text,
     Anchor,
     List,
     ThemeIcon,
+    ScrollArea,
   } from '@mantine/core';
 
 import SignUpImg from '../../assets/sign-up-img.png'
-import Btn from '../profile-ui/Btn';
 import CustomeLink from '../profile-ui/Links';
 
 import FireIcon from '../../assets/fire-icon.png'
+import GraphIcon from '../../assets/graph-icon.png'
+
+import AuthenticationForm from './AuthenticationForm';
   
   const useStyles = createStyles((theme) => ({
     mainContainer: {
@@ -34,7 +35,7 @@ import FireIcon from '../../assets/fire-icon.png'
       display: "flex",
       justifyContent: "right",
       position: "relative",
-      padding: "5%"
+      paddingRight: "5%"
     },
     orangeCircularShapeBox: {
         background: theme.colors.orange[6],
@@ -49,6 +50,9 @@ import FireIcon from '../../assets/fire-icon.png'
             display: "none",
         },
     },
+    shadowBox: {
+        boxShadow: '1px 2px 9px #d6d6d4',
+    },
     imageContainer: {
         zIndex: 2,
         position: "absolute",
@@ -61,12 +65,24 @@ import FireIcon from '../../assets/fire-icon.png'
             display: "none",
         },
     },
+    graphImg: {
+        position: "absolute",
+        top:"15%",
+        left: "35%",
+        zIndex: 4,
+    },
     listContainer: {
         position: "absolute",
         zIndex: 3,
         top: "60%",
         left: "6%",
         width: "40%",
+        [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+            display: "none",
+        },
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            display: "none",
+        },
     },
   
     form: {
@@ -79,12 +95,6 @@ import FireIcon from '../../assets/fire-icon.png'
       [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
         maxWidth: '100%',
       },
-    },
-
-    loginBtnContainer: {
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "5%",
     },
   
     title: {
@@ -102,7 +112,8 @@ import FireIcon from '../../assets/fire-icon.png'
   }));
   
   export function Authentication() {
-    const { classes } = useStyles();
+    const { classes, theme } = useStyles();  
+
     return (
       <div className={classes.mainContainer}>
           <div className={classes.wrapper}>
@@ -110,8 +121,9 @@ import FireIcon from '../../assets/fire-icon.png'
             {/* Right Side content */}
             <div className={classes.orangeCircularShapeBox}></div>
             <div className={classes.imageContainer}>
-                <img src={SignUpImg} />
+                <img src={SignUpImg} className={classes.shadowBox} />
             </div>
+            <img src={GraphIcon} width={70} className={classes.graphImg + " " + classes.shadowBox} />
             <div className={classes.listContainer}>
                 <List
                     spacing="xs"
@@ -119,7 +131,6 @@ import FireIcon from '../../assets/fire-icon.png'
                     center
                     icon={
                         <ThemeIcon color="teal" size={24} radius="xl">
-                            {/* <IconCircleCheck size={16} /> */}
                             <img src={FireIcon} width={20} />
                         </ThemeIcon>
                     }
@@ -136,19 +147,9 @@ import FireIcon from '../../assets/fire-icon.png'
               <Title order={2} className={classes.title} align="center" mt="md" mb={50}>
                 Start your 15-day free trial!
               </Title>
-      
-              <TextInput label="First Name" size="md" />
-              <TextInput label="Last Name" mt="md" size="md" />
-              <TextInput label="Company Website" mt="md" size="md" />
-              <TextInput label="Email Address" mt="md" size="md" />
-              <PasswordInput label="Password" mt="md" size="md"/>
-              <div className={classes.loginBtnContainer}>
-                  <Btn 
-                    label="Start"
-                    btnWidth="80%"
-                  />
-              </div>
-      
+
+              <ScrollArea><AuthenticationForm /></ScrollArea>
+              
               <Text align="center" mt="md">
                 Have an account?{' '}
                 <Anchor<'a'> href="#" weight={700} onClick={(event) => event.preventDefault()}>
