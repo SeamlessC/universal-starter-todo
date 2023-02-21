@@ -1,8 +1,9 @@
-import { Accordion, Box, createStyles, List, Group } from '@mantine/core';
+import { Accordion, Box, createStyles, List, Group, Text } from '@mantine/core';
 import { useState } from 'react';
 
 import CustomeLink from '../../profile-ui/Links';
 import { FileBtn } from '../../widgets/FileBtn';
+import CVSAccordionData from './CVSAccordionData';
 
 const useStyele = createStyles((theme) => ({
     accordionLinksGroup: {
@@ -36,8 +37,8 @@ function AccordionControl({name, setfiles}) {
   );
 }
 
-const AccordionData = (data, files, setfiles) => {
-    return data.map((e,  i) => {
+const AccordionData = (headers, setfiles, data) => {
+    return headers.map((e,  i) => {
         return (
           <Accordion.Item value={e.name} key={i}>
             <AccordionControl setfiles={setfiles} name={e.name}>{e.name}</AccordionControl>
@@ -50,18 +51,26 @@ const AccordionData = (data, files, setfiles) => {
                 ))}
               </List> */}
 
+              {
+                data.map((ele, index) => {
+                  return (
+                    <CVSAccordionData name={ele.name} key={index} />
+                  )
+                })
+              }
+
             </Accordion.Panel>
           </Accordion.Item>
         )
     })
 }
 
-export function CVSAccordion({data}) {
+export function CVSAccordion({headers, data}) {
   const [files, setFiles] = useState([])
 
   return (
     <Accordion variant="separated" chevronPosition="left" defaultValue="customization">
-      { AccordionData(data, files, setFiles) }
+      { AccordionData(headers, setFiles, data) }
     </Accordion>
   );
 }

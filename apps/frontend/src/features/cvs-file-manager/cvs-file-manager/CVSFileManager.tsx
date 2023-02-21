@@ -14,6 +14,13 @@ const headers = [
     {name: "CVS Template 02"},
 ]
 
+const fileList = [
+    {name: "Twitter Adds File 01"},
+    {name: "Twitter Adds File 02"},
+    {name: "Twitter Adds File 03"},
+    {name: "Twitter Adds File 04"},
+]
+
 function CVSFileManager() {
   const { classes, theme } = useStyele()
 
@@ -28,7 +35,7 @@ function CVSFileManager() {
             <Search placeholder="search for cvs files..." />
         </Group>
         <ScrollArea>
-            <CVSAccordion data={headers} />
+            <CVSAccordion headers={headers} data={fileList} />
         </ScrollArea>
     </div>
   )
