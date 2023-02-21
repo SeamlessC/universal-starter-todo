@@ -5,7 +5,14 @@ import { CVSAccordion } from './CVSAccordion'
 
 const useStyele = createStyles((theme) => ({
     
-  }))
+}))
+
+const headers = [
+    {name: "Twitter Adds"},
+    {name: "Twitter Analyytics"},
+    {name: "CVS Template 01"},
+    {name: "CVS Template 02"},
+]
 
 function CVSFileManager() {
   const { classes, theme } = useStyele()
@@ -21,7 +28,7 @@ function CVSFileManager() {
             <Search placeholder="search for cvs files..." />
         </Group>
         <ScrollArea>
-            <CVSAccordion />
+            <CVSAccordion data={headers} />
         </ScrollArea>
     </div>
   )
