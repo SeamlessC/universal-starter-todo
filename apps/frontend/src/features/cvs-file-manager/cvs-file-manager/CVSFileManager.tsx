@@ -1,6 +1,7 @@
-import { createStyles, Group, Text, Title } from '@mantine/core'
+import { createStyles, Group, ScrollArea, Text, Title } from '@mantine/core'
 import Btn from '../../profile-ui/Btn'
 import Search from '../../widgets/Search'
+import { CVSAccordion } from './CVSAccordion'
 
 const useStyele = createStyles((theme) => ({
     
@@ -19,6 +20,9 @@ function CVSFileManager() {
             <Text>CVS Template Presets</Text>
             <Search placeholder="search for cvs files..." />
         </Group>
+        <ScrollArea>
+            <CVSAccordion />
+        </ScrollArea>
     </div>
   )
 }
