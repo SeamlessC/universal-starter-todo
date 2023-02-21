@@ -10,8 +10,8 @@ function App() {
 		// <RelayEnvironmentProvider environment={relayEnv}>
 		<Suspense fallback={"Loading..."}>
 			<div className="App">
-				{/* <Shell></Shell> */}
-				<Authentication />
+				<Shell></Shell>
+				{/* <Authentication /> */}
 			</div>
 		</Suspense>
 		// </RelayEnvironmentProvider>
