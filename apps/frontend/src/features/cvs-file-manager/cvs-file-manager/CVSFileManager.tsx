@@ -4,7 +4,9 @@ import Search from '../../widgets/Search'
 import { CVSAccordion } from './CVSAccordion'
 
 const useStyele = createStyles((theme) => ({
-    
+    marginTop: {
+        marginTop: "3%",
+    }
 }))
 
 const headers = [
@@ -25,16 +27,16 @@ function CVSFileManager() {
   const { classes, theme } = useStyele()
 
   return (
-    <div>
+    <div className={classes.marginTop}>
         <Group position="apart">
             <Title>CVS File Manager</Title>
             <Btn label="Create CVS Template" />
         </Group>
-        <Group position="apart">
+        <Group position="apart" mt={30}>
             <Text>CVS Template Presets</Text>
             <Search placeholder="search for cvs files..." />
         </Group>
-        <ScrollArea>
+        <ScrollArea mt={30}>
             <CVSAccordion headers={headers} data={fileList} />
         </ScrollArea>
     </div>
