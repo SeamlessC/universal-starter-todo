@@ -1,6 +1,7 @@
 import { Container } from "@mantine/core";
 import React from "react";
 import CVSFileManager from "../cvs-file-manager/cvs-file-manager/CVSFileManager";
+import { CVSTemplateCreation } from "../cvs-file-manager/template-creation/CVSTemplateCreation";
 import { ProfileUI } from "../profile-ui/ProfileUI";
 import { HomeDashboard } from "./HomeDashboard";
 
@@ -17,7 +18,8 @@ const Home: React.FC<HomeProps> = () => {
 				></QueryFragContainer> */}
 				{/* <HomeDashboard /> */}
 				{/* <ProfileUI /> */}
-				<CVSFileManager />
+				{/* <CVSFileManager /> */}
+				<CVSTemplateCreation />
 			</Container>
 		</>
 	);
