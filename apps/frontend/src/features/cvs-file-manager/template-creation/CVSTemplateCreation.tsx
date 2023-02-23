@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Stepper, createStyles, Grid, Center, Title, NumberInput, Stack, Select } from "@mantine/core";
-import CVSTemplateCreation01 from "./CVSTemplateCreation01";
 import Btn from "../../profile-ui/Btn";
 import { useForm } from "@mantine/form";
+import { CVSTemplateCreation01 } from "./CVSTemplateCreation01";
 
 const useStyles = createStyles((theme) => ({
 	main: {
