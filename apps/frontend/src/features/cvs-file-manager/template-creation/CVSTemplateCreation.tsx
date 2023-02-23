@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Stepper, createStyles, Grid, Center, Title, NumberInput, Stack, Select } from "@mantine/core";
+import { Stepper, createStyles, Grid, Center, Title, NumberInput, Stack, Select, Text } from "@mantine/core";
 import Btn from "../../profile-ui/Btn";
 import { useForm } from "@mantine/form";
 import { CVSTemplateCreation01 } from "./CVSTemplateCreation01";
@@ -36,6 +36,7 @@ const useStyles = createStyles((theme) => ({
 export function CVSTemplateCreation() {
 	const [active, setActive] = useState(0);
 	const { classes, theme } = useStyles();
+	const [files, setFiles] = useState()
 
 	const form = useForm({
 		initialValues: {
@@ -60,7 +61,8 @@ export function CVSTemplateCreation() {
 			</Stepper>
 			<Grid mt={20} ml={0} mr={0} columns={48}>
 				<Grid.Col sm={48} md={32}  className={classes.grid}>
-					<CVSTemplateCreation01 />
+					<CVSTemplateCreation01 setfiles={setFiles} />
+					{/* {files != null ? <Text>{files[0]["name"]}</Text> : null} */}
 				</Grid.Col>
 
 				{/* Structure Definition */}

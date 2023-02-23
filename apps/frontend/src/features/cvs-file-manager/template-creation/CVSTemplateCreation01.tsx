@@ -14,13 +14,14 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-export function CVSTemplateCreation01(props: Partial<DropzoneProps>) {
+// export function CVSTemplateCreation01(props: Partial<DropzoneProps>) {
+export function CVSTemplateCreation01(props: {setfiles: any}) {
   const { classes, theme } = useStyles()
   
   return (
     <div>
       <Dropzone
-        onDrop={(files) => console.log('accepted files', files)}
+        onDrop={(files) => props.setfiles(files)}
         onReject={(files) => console.log('rejected files', files)}
         maxSize={3 * 1024 ** 2}
         accept={IMAGE_MIME_TYPE}
