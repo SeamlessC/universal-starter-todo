@@ -3,6 +3,7 @@ import { Stepper, createStyles, Grid, Center, Title, NumberInput, Stack, Select,
 import Btn from "../../profile-ui/Btn";
 import { useForm } from "@mantine/form";
 import { CVSTemplateCreation01 } from "./CVSTemplateCreation01";
+import CVSTemplateCreation02 from "./CVSTemplateCreation02";
 
 const useStyles = createStyles((theme) => ({
 	main: {
@@ -60,13 +61,16 @@ export function CVSTemplateCreation() {
 				<Stepper.Completed>Completed, click back button to get to previous step</Stepper.Completed>
 			</Stepper>
 			<Grid mt={20} ml={0} mr={0} columns={48}>
-				<Grid.Col sm={48} md={32}  className={classes.grid}>
-					<CVSTemplateCreation01 setfiles={setFiles} />
-					{/* {files != null ? <Text>{files[0]["name"]}</Text> : null} */}
+				<Grid.Col sm={48} md={35} className={classes.grid}>
+					{
+						files == null ?
+							<CVSTemplateCreation01 setfiles={setFiles} />
+						: <CVSTemplateCreation02 files={files} />	
+					}
 				</Grid.Col>
 
 				{/* Structure Definition */}
-				<Grid.Col sm={48} md={15} offset={1} className={classes.grid}>
+				<Grid.Col sm={48} md={12} offset={1} className={classes.grid}>
 					<Center className={classes.grid2}>
 						<Title order={3}>Structure Definition</Title>
 						<form onSubmit={form.onSubmit((values) => onSubmit(values))}>
