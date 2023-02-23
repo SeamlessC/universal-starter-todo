@@ -65,7 +65,7 @@ export function CVSTemplateCreation() {
 				<Stepper.Completed>Completed, click back button to get to previous step</Stepper.Completed>
 			</Stepper>
 			<Grid mt={20} ml={0} mr={0} columns={48}>
-				<Grid.Col sm={48} md={35} className={classes.grid}>
+				<Grid.Col sm={48} md={32} className={classes.grid}>
 					{
 						files == null ?
 							<CVSTemplateCreation01 setfiles={setFiles} />
@@ -74,7 +74,7 @@ export function CVSTemplateCreation() {
 				</Grid.Col>
 
 				{/* Structure Definition */}
-				<Grid.Col sm={48} md={12} offset={1} className={classes.grid}>
+				<Grid.Col sm={48} md={15} offset={1} className={classes.grid}>
 					<Center className={classes.grid2}>
 						<Title order={3}>
 							{formType == "structure" ? "Structure Definition" : "Data Definition"}
