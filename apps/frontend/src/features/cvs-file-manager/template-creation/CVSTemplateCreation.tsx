@@ -30,7 +30,7 @@ const useStyles = createStyles((theme) => ({
 		width: "100%",
 	},
 	height: {
-		height: (window.innerHeight/6)*4,
+		height: (window.innerHeight/6)*3.8,
 	}
 }));
 
