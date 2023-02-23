@@ -76,7 +76,9 @@ export function CVSTemplateCreation() {
 				{/* Structure Definition */}
 				<Grid.Col sm={48} md={12} offset={1} className={classes.grid}>
 					<Center className={classes.grid2}>
-						<Title order={3}>Structure Definition</Title>
+						<Title order={3}>
+							{formType == "structure" ? "Structure Definition" : "Data Definition"}
+						</Title>
 						<form onSubmit={form.onSubmit((values) => onSubmit(values))}>
 							<Stack justify="space-between" className={classes.height}>
 								{
@@ -86,7 +88,7 @@ export function CVSTemplateCreation() {
 								}
 								
 								<Btn 
-									label="Continue" 
+									label={formType == "structure" ? "Continue" : "Save Template"}
 									type="submit"
 								/>
 							</Stack>
