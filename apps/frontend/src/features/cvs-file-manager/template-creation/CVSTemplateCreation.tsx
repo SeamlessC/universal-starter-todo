@@ -4,6 +4,8 @@ import Btn from "../../profile-ui/Btn";
 import { useForm } from "@mantine/form";
 import { CVSTemplateCreation01 } from "./CVSTemplateCreation01";
 import CVSTemplateCreation02 from "./CVSTemplateCreation02";
+import CSVForm_01 from "./forms/CSVForm_01";
+import DataDefinition from "./DataDefinition";
 
 const useStyles = createStyles((theme) => ({
 	main: {
@@ -38,6 +40,7 @@ export function CVSTemplateCreation() {
 	const [active, setActive] = useState(0);
 	const { classes, theme } = useStyles();
 	const [files, setFiles] = useState()
+	const [formType, setFormType] = useState("structure")
 
 	const form = useForm({
 		initialValues: {
@@ -51,6 +54,7 @@ export function CVSTemplateCreation() {
 	const onSubmit = (values: any) => {
 		console.log(values);
 		console.log(values['headerLines']);
+		setFormType("dataDefinition")
 	}
 
 	return (
@@ -75,50 +79,12 @@ export function CVSTemplateCreation() {
 						<Title order={3}>Structure Definition</Title>
 						<form onSubmit={form.onSubmit((values) => onSubmit(values))}>
 							<Stack justify="space-between" className={classes.height}>
-								<div>
-									<NumberInput
-										mt={10}
-										defaultValue={0}
-										label="Header Lines"
-										min={0}
-										className={classes.input}
-										{...form.getInputProps('headerLines')}
-									/>
-									<NumberInput
-										mt={10}
-										defaultValue={0}
-										label="Footer Lines"
-										min={0}
-										className={classes.input}
-										{...form.getInputProps('footerLines')}
-									/>
-									<Select
-										mt={10}
-										allowDeselect
-										label="Column Seperator"
-										defaultValue="react"
-										data={[
-											{ value: 'react', label: 'React' },
-											{ value: 'ng', label: 'Angular' },
-											{ value: 'svelte', label: 'Svelte' },
-											{ value: 'vue', label: 'Vue' },
-										]}
-										{...form.getInputProps('seperator')}
-									/>
-									<Select
-										mt={10}
-										allowDeselect
-										label="File Encoding"
-										defaultValue="utf-8"
-										data={[
-											{ value: 'utf-8', label: 'UTF-8' },
-											{ value: 'ng', label: 'Angular' },
-											{ value: 'svelte', label: 'Svelte' },
-											{ value: 'vue', label: 'Vue' },
-										]}
-										{...form.getInputProps('fileEncoding')}
-									/>
-								</div>
+								{
+									formType == "structure" ?
+										<CSVForm_01 form={form} />
+									: <DataDefinition /> 						
+								}
+								
 								<Btn 
 									label="Continue" 
 									type="submit"
