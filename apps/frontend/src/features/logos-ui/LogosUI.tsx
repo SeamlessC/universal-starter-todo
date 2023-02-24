@@ -10,14 +10,17 @@ import Twitter from '../../assets/twitter-icon.png'
 import Facebook from '../../assets/facebook-icon.png'
 import Fire from '../../assets/fire-icon.png'
 import LogoViewer from './LogoViewer'
+import LogoEditor from './LogoEditor'
 
 const useStyle = createStyles((theme) => ({
-    gridContainer: {
+    height: {
         height: (window.innerHeight/3)*2,
     },
-    scrollAreaHeight: {
+    sideContainer: {
         height: (window.innerHeight/3)*2,
-        margin: 0
+        background: theme.white,
+        display: "flex",
+        justifyContent: "center",
     }
 }))
 
@@ -33,13 +36,6 @@ const Logos = [
     Youtube,
     Twitter,
     Facebook,
-    Youtube,
-    Fire,
-    Twitter,
-    Facebook,
-    Youtube,
-    Fire,   
-    Twitter,
     Youtube,
 ]
 
@@ -64,13 +60,15 @@ function LogosUI() {
                 </ActionIcon>
             </Group>
         </Group>
-        <Grid mt={20} className={classes.gridContainer}>
+        <Grid mt={20} className={classes.height}>
             <Grid.Col md={12} lg={8}>
-                <ScrollArea className={classes.scrollAreaHeight}>
+                <ScrollArea className={classes.height}>
                     <LogoViewer imgs={Logos} selectLogo={selectLogo} setSelectLogo={setSelectLogo} />
                 </ScrollArea>
             </Grid.Col>
-            <Grid.Col md={12} lg={4}>2</Grid.Col>
+            <Grid.Col md={12} lg={4} className={classes.sideContainer}>
+                <LogoEditor selectLogo={selectLogo} />
+            </Grid.Col>
         </Grid>
     </>
   )
