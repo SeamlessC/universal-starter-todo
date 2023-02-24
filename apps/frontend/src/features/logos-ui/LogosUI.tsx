@@ -1,5 +1,5 @@
 import { ActionIcon, createStyles, Grid, Group, ScrollArea, Title } from '@mantine/core'
-import React from 'react'
+import { useState } from 'react'
 import Btn from '../profile-ui/Btn'
 import Search from '../widgets/Search'
 import OrderIcon from '../../assets/order-icon.png'
@@ -45,6 +45,7 @@ const Logos = [
 
 function LogosUI() {
   const { classes, theme } = useStyle()
+  const [selectLogo, setSelectLogo] = useState()
 
   return (
     <>
@@ -66,7 +67,7 @@ function LogosUI() {
         <Grid mt={20} className={classes.gridContainer}>
             <Grid.Col md={12} lg={8}>
                 <ScrollArea className={classes.scrollAreaHeight}>
-                    <LogoViewer imgs={Logos} />
+                    <LogoViewer imgs={Logos} selectLogo={selectLogo} setSelectLogo={setSelectLogo} />
                 </ScrollArea>
             </Grid.Col>
             <Grid.Col md={12} lg={4}>2</Grid.Col>

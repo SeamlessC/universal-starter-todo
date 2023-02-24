@@ -1,4 +1,4 @@
-import { ActionIcon, createStyles, Grid, Group } from '@mantine/core'
+import { createStyles, Grid } from '@mantine/core'
 
 import DeleteIcon from '../../assets/white-delete-icon.png'
 import CropIcon from '../../assets/white-crop-icon.png'
@@ -13,7 +13,7 @@ const useStyle = createStyles((theme) => ({
         width: "100%",
         height: ((window.innerHeight/3)*2)/4,
         background: theme.white,
-        borderRadius: theme.radius.md,
+        borderRadius: theme.radius.sm,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -27,7 +27,7 @@ const useStyle = createStyles((theme) => ({
     },
 }))
 
-function LogoViewer(data: {imgs: string[]}) {
+function LogoViewer(data: {imgs: string[], setSelectLogo: any, selectLogo: any}) {
   const { classes, theme } = useStyle()
 
   return (
@@ -35,14 +35,28 @@ function LogoViewer(data: {imgs: string[]}) {
         {
             data.imgs.map((e, index) => {
                 return (
-                    <Grid.Col lg={5} md={5} sm={10} className={classes.imgBox}>
-                        <div className={classes.img}>
+                    <Grid.Col 
+                        lg={5} 
+                        md={5} 
+                        sm={10} 
+                        className={classes.imgBox} 
+                        key={index}
+                    >
+                        <div 
+                            className={classes.img}
+                            onClick={() => data.setSelectLogo(index)}
+                            style={{border: data.selectLogo == index ? "2px solid orange" : "2px solid transparent"}}
+                        >
                             <img src={e}  />
-                            <div className={classes.iconBtnBox}>
-                                <IconBtn icon={SkimmingIcon} />
-                                <IconBtn icon={DeleteIcon} />
-                                <IconBtn icon={CropIcon} />
-                            </div>
+                            {
+                                data.selectLogo == index ?
+                                <div className={classes.iconBtnBox}>
+                                    <IconBtn icon={SkimmingIcon} />
+                                    <IconBtn icon={DeleteIcon} />
+                                    <IconBtn icon={CropIcon} />
+                                </div>
+                                : null
+                            }
                         </div>
                     </Grid.Col>
                 )
