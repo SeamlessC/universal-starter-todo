@@ -55,9 +55,9 @@ function DefineDateForm() {
           { value: 'vue', label: 'Vue' },
         ]}
       />
-      <Group position='apart' mt={10}>
+      <Group position='apart' mt={10} mb={20}>
         <CustomeLink label='Cancel' />
-        <Btn label="Apply" />
+        <Btn label="Apply" varient="outline" />
       </Group>
     </div>
   )
