@@ -1,20 +1,30 @@
-import { ActionIcon, createStyles, Grid } from '@mantine/core'
+import { ActionIcon, createStyles, Grid, Group } from '@mantine/core'
 
-import DeleteBtn from '../../assets/delete-icon.png'
-
+import DeleteIcon from '../../assets/white-delete-icon.png'
+import CropIcon from '../../assets/white-crop-icon.png'
+import SkimmingIcon from '../../assets/white-video-skimming-icon.png'
+import IconBtn from '../widgets/IconBtn'
 
 const useStyle = createStyles((theme) => ({
     imgBox: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         position: "relative",
     },
     img: {
         width: "100%",
+        height: ((window.innerHeight/3)*2)/4,
         background: theme.white,
         borderRadius: theme.radius.md,
-    }
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    iconBtnBox: {
+        position: "absolute",
+        bottom: 13,
+        right: 10,
+        display: "flex",
+        flexDirection: "row"
+    },
 }))
 
 function LogoViewer(data: {imgs: string[]}) {
@@ -25,12 +35,14 @@ function LogoViewer(data: {imgs: string[]}) {
         {
             data.imgs.map((e, index) => {
                 return (
-                    <Grid.Col lg={5} md={5} sm={12} className={classes.imgBox}>
-                        <img src={e} className={classes.img} />
-                        <div>
-                            {/* <ActionIcon>
-                                <img src={} />
-                            </ActionIcon> */}
+                    <Grid.Col lg={5} md={5} sm={10} className={classes.imgBox}>
+                        <div className={classes.img}>
+                            <img src={e}  />
+                            <div className={classes.iconBtnBox}>
+                                <IconBtn icon={SkimmingIcon} />
+                                <IconBtn icon={DeleteIcon} />
+                                <IconBtn icon={CropIcon} />
+                            </div>
                         </div>
                     </Grid.Col>
                 )
