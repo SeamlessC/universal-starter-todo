@@ -4,6 +4,7 @@ import { useDisclosure } from "@mantine/hooks";
 import ResponsiveNavbar from "../navbar/ResponsiveNavbar";
 import { aiesecmanLogo } from "../_common/assets/exports";
 import Home from "../home/Home";
+import Btn from "../profile-ui/Btn";
 
 interface ShellProps {}
 
@@ -48,6 +49,11 @@ const Shell: React.FC<ShellProps> = () => {
 						</div>
 					</div>
 					{/* placeholder for user profile */}
+					<Btn 
+						label="Share"
+						btnWidth="10%"
+						margin="10px"
+					/>
 				</Header>
 			}
 		>
