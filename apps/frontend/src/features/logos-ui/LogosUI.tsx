@@ -54,13 +54,13 @@ function LogosUI() {
                 </ActionIcon>
             </Group>
         </Group>
-        <Grid mt={20} className={classes.height}>
-            <Grid.Col md={12} lg={8}>
+        <Grid mt={20} className={classes.height} columns={30}>
+            <Grid.Col sm={20} md={20} lg={22}>
                 <ScrollArea className={classes.height}>
                     <LogoViewer imgs={Logos} selectLogo={selectLogo} setSelectLogo={setSelectLogo} />
                 </ScrollArea>
             </Grid.Col>
-            <Grid.Col md={12} lg={4} className={classes.sideContainer}>
+            <Grid.Col sm={10} md={10} lg={8} className={classes.sideContainer}>
                 <LogoEditor selectLogo={selectLogo} imgs={Logos} />
             </Grid.Col>
         </Grid>

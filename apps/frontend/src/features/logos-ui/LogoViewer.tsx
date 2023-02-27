@@ -37,8 +37,8 @@ function LogoViewer(data: {setSelectLogo: any, selectLogo: any, imgs: {icon: str
                 return (
                     <Grid.Col 
                         lg={5} 
-                        md={5} 
-                        sm={10} 
+                        sm={8} 
+                        xs={8}
                         className={classes.imgBox} 
                         key={index}
                     >
