@@ -22,20 +22,26 @@ const people= [
     },
 ]
 
-function ColloborationSelect() {
-  const [data, setData] = useState([
-       { value: 'react', label: 'React' },
-       { value: 'ng', label: 'Angular' },
-  ]);
-
-  const [value, setValue] = useState([]);
-    
+function ColloborationSelect(
+    data: {
+        data: any, 
+        setData: any, 
+        value: any, 
+        setValue:any,
+        setShowSendMsgView: any
+    }
+) {
   return (
     <div>
         <form>
             <Group mt={30}>
-                <CollaborationMultipleSelect setData={setData} data={data} value={value} setValue={setValue} />
-                <Btn label='Add' btnWidth='10%' onClick={() => console.log(value)}/>
+                <CollaborationMultipleSelect setData={data.setData} data={data.data} value={data.value} setValue={data.setValue} />
+                <Btn label='Add' btnWidth='10%' onClick={() => {
+                    console.log(data.value)
+                    if(data.value.length !== 0){
+                        data.setShowSendMsgView(true)
+                    }
+                }}/>
             </Group>
         </form>
         <Text fw={700} mt={30}>
