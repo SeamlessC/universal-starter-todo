@@ -25,18 +25,12 @@ const useStyle = createStyles((theme) => ({
 }))
 
 const Logos = [
-    Youtube,
-    Facebook,
-    Youtube,
-    Fire,
-    Youtube,
-    Twitter,
-    Youtube,
-    Fire,
-    Youtube,
-    Twitter,
-    Facebook,
-    Youtube,
+    {icon: Youtube, name: "youtube"},
+    {icon: Facebook, name: "Facebook"},
+    {icon: Fire, name: "Fire"},
+    {icon: Youtube, name: "youtube"},
+    {icon: Facebook, name: "Facebook"},
+    {icon: Fire, name: "Fire"},
 ]
 
 function LogosUI() {
@@ -67,7 +61,7 @@ function LogosUI() {
                 </ScrollArea>
             </Grid.Col>
             <Grid.Col md={12} lg={4} className={classes.sideContainer}>
-                <LogoEditor selectLogo={selectLogo} />
+                <LogoEditor selectLogo={selectLogo} imgs={Logos} />
             </Grid.Col>
         </Grid>
     </>

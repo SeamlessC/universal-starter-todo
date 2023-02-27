@@ -27,7 +27,7 @@ const useStyle = createStyles((theme) => ({
     },
 }))
 
-function LogoViewer(data: {imgs: string[], setSelectLogo: any, selectLogo: any}) {
+function LogoViewer(data: {setSelectLogo: any, selectLogo: any, imgs: {icon: string; name: string; }[]}) {
   const { classes, theme } = useStyle()
 
   return (
@@ -47,7 +47,7 @@ function LogoViewer(data: {imgs: string[], setSelectLogo: any, selectLogo: any})
                             onClick={() => data.setSelectLogo(index)}
                             style={{border: data.selectLogo == index ? "2px solid orange" : "2px solid transparent"}}
                         >
-                            <img src={e}  />
+                            <img src={e.icon}  />
                             {
                                 data.selectLogo == index ?
                                 <div className={classes.iconBtnBox}>
