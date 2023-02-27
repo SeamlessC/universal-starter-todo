@@ -40,7 +40,12 @@ export function CollaborationFeatures(modal: {setOpened: any, opened: any}) {
               setShowSendMsgView={setShowSendMsgView}
             />
           :
-            <CollaborationSendMsg />  
+            <CollaborationSendMsg 
+              data={data}
+              setData={setData}
+              value={value}
+              setValue={setValue}
+            />  
         }
       </div>
     </Modal>

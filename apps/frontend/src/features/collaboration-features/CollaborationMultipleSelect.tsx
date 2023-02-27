@@ -5,12 +5,13 @@ export function CollaborationMultipleSelect(
     data: any, 
     setData: any, 
     value:any, 
-    setValue: any
+    setValue: any,
+    width?: string,
   }
 ) {
   return (
     <MultiSelect
-      style={{width: "87%"}}
+      style={{width: select.width ?? "87%"}}
       data={select.data}
       value={select.value}
       placeholder="enter email to add people (seperate by commas)"
