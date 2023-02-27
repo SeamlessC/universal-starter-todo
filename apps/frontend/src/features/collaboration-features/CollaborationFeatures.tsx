@@ -16,7 +16,10 @@ export function CollaborationFeatures(modal: {setOpened: any, opened: any}) {
       centered
       size="50%"
       opened={modal.opened}
-      onClose={() => modal.setOpened(false)}
+      onClose={() => {
+        modal.setOpened(false)
+        setShowSendMsgView(false)
+      }}
       title={
         <Text 
           fw={700} 
