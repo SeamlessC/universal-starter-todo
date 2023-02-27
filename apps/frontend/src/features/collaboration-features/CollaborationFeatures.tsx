@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Modal, Button, Group, Text } from '@mantine/core';
+import { Modal, Text } from '@mantine/core';
 import ColloborationSelect from './ColloborationSelect';
 
 export function CollaborationFeatures(modal: {setOpened: any, opened: any}) {

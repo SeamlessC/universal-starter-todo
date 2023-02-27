@@ -1,4 +1,4 @@
-import { Group, Text } from '@mantine/core'
+import { Group, ScrollArea, Text } from '@mantine/core'
 import { useState } from 'react'
 import Btn from '../profile-ui/Btn'
 import { CollaborationMultipleSelect } from './CollaborationMultipleSelect'
@@ -41,11 +41,13 @@ function ColloborationSelect() {
         <Text fw={700} mt={30}>
             People with access
         </Text>
-        {
-            people.map((e, i) => {
-                return <PeopleWithAccessUI person={e} key={i} />
-            })
-        }
+        <ScrollArea style={{height: window.innerHeight/3}}>
+            {
+                people.map((e, i) => {
+                    return <PeopleWithAccessUI person={e} key={i} />
+                })
+            }
+        </ScrollArea>
     </div>
   )
 }
