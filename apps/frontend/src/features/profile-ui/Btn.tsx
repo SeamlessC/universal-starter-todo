@@ -20,6 +20,7 @@ function Btn(btn: {
     margin?: string,
     type?: any,
     icon?: string,
+    onClick?: any,
   }) {
 
   const { classes, theme } = useStyle()
@@ -31,6 +32,7 @@ function Btn(btn: {
       className={classes.btnWidthSmall}
       style= {{width: btn.btnWidth, marginTop: btn.marginTop, margin: btn.margin}}
       type={btn.type != null ? btn.type : "button"}
+      onClick={btn.onClick}
     >
         {btn.icon ? <img src={btn.icon} style={{marginRight: "5px"}} /> : null}
         {btn.label}

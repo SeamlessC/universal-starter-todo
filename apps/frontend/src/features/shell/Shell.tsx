@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppShell, Header, MediaQuery, Burger, Image, createStyles, CSSObject } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import ResponsiveNavbar from "../navbar/ResponsiveNavbar";
 import { aiesecmanLogo } from "../_common/assets/exports";
 import Home from "../home/Home";
 import Btn from "../profile-ui/Btn";
+import { CollaborationFeatures } from "../collaboration-features/CollaborationFeatures";
 
 interface ShellProps {}
 
@@ -23,6 +24,9 @@ const useStyles = createStyles((theme) => ({
 const Shell: React.FC<ShellProps> = () => {
 	const [respOpen, respOpenHandlers] = useDisclosure(false);
 	const { classes, cx, theme } = useStyles();
+
+	const [opened, setOpened] = useState(false);
+
 	return (
 		<AppShell
 			styles={{
@@ -53,7 +57,9 @@ const Shell: React.FC<ShellProps> = () => {
 						label="Share"
 						btnWidth="10%"
 						margin="10px"
+						onClick={() => setOpened(true)}
 					/>
+					<CollaborationFeatures opened={opened} setOpened={setOpened} />
 				</Header>
 			}
 		>
