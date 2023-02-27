@@ -1,5 +1,7 @@
-import { Group, Input, Text } from '@mantine/core'
+import { Group, Text } from '@mantine/core'
+import { useState } from 'react'
 import Btn from '../profile-ui/Btn'
+import { CollaborationMultipleSelect } from './CollaborationMultipleSelect'
 import PeopleWithAccessUI from './PeopleWithAccessUI'
 
 const people= [
@@ -21,16 +23,19 @@ const people= [
 ]
 
 function ColloborationSelect() {
+  const [data, setData] = useState([
+       { value: 'react', label: 'React' },
+       { value: 'ng', label: 'Angular' },
+  ]);
+
+  const [value, setValue] = useState([]);
+    
   return (
     <div>
         <form>
             <Group mt={30}>
-                <Input 
-                    placeholder="enter email to add people (seperate by commas)" 
-                    style={{width: "87%"}}
-                    variant="filled"
-                />
-                <Btn label='Add' type="submit" btnWidth='10%' />
+                <CollaborationMultipleSelect setData={setData} data={data} value={value} setValue={setValue} />
+                <Btn label='Add' btnWidth='10%' onClick={() => console.log(value)}/>
             </Group>
         </form>
         <Text fw={700} mt={30}>
@@ -38,7 +43,7 @@ function ColloborationSelect() {
         </Text>
         {
             people.map((e, i) => {
-                return <PeopleWithAccessUI person={e} />
+                return <PeopleWithAccessUI person={e} key={i} />
             })
         }
     </div>
