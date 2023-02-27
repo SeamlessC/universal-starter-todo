@@ -7,11 +7,11 @@ const useStyle = createStyles((theme) => ({
     }
 }))
 
-function IconBtn(data: {icon: string}) {
+function IconBtn(data: {icon: string, removeBackground?: boolean}) {
   const { classes, theme } = useStyle()
 
   return (
-    <ActionIcon className={classes.iconBtn} variant="filled" mr={3}>
+    <ActionIcon className={classes.iconBtn} variant="filled" mr={3} style={{background: data.removeBackground == true ? "transparent" : theme.colors.orange[7]}}>
         <img src={data.icon} width={20} />
     </ActionIcon>
   )
