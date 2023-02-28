@@ -1,5 +1,6 @@
 import { Container } from "@mantine/core";
 import React from "react";
+import CreateCustomTemplate from "../create-custom-template/CreateCustomTemplate";
 import CustomTemplates from "../custom-templates/CustomTemplates";
 import CVSFileManager from "../cvs-file-manager/cvs-file-manager/CVSFileManager";
 import { CVSTemplateCreation } from "../cvs-file-manager/template-creation/CVSTemplateCreation";
@@ -23,7 +24,8 @@ const Home: React.FC<HomeProps> = () => {
 				{/* <CVSFileManager /> */}
 				{/* <CVSTemplateCreation /> */}
 				{/* <LogosUI /> */}
-				<CustomTemplates />
+				{/* <CustomTemplates /> */}
+				<CreateCustomTemplate />
 			</Container>
 		</>
 	);

@@ -3,11 +3,11 @@ import SearchIcon from '../../assets/search-icon.png'
 
 const useStyele = createStyles((theme) => ({
   searchBar: {
-    width: "50%",
+    // width: "50%",
   }
 }))
 
-function Search(data: {placeholder: string}) {
+function Search(data: {placeholder: string, width?: string}) {
   const { classes, theme } = useStyele()
 
   return (
@@ -15,6 +15,7 @@ function Search(data: {placeholder: string}) {
       placeholder={data.placeholder}
       icon={<img src={SearchIcon} width={20} />}
       className={classes.searchBar}
+      style={{width: data.width == null ? "50%" : data.width}}
     />
   )
 }

@@ -1,4 +1,4 @@
-import { createStyles, Flex, Group, Title } from '@mantine/core'
+import { createStyles, Flex, Group, ScrollArea, Title } from '@mantine/core'
 import Btn from '../profile-ui/Btn'
 import Search from '../widgets/Search'
 import CustomeTemplatesTable from './CustomeTemplatesTable'
@@ -25,7 +25,9 @@ function CustomTemplates() {
         >
             <Search placeholder="Search for templates...." />
         </Flex>
-        <CustomeTemplatesTable />
+        <ScrollArea>
+            <CustomeTemplatesTable />
+        </ScrollArea>
     </div>
   )
 }
