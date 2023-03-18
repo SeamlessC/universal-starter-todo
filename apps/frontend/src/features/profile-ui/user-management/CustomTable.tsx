@@ -1,24 +1,22 @@
-import { createStyles, Table } from '@mantine/core'
+import { createStyles, Table } from "@mantine/core";
 
 const useStyle = createStyles((theme) => ({
-    marginTop: {
-        marginTop: "0%",
-    }
-}))
+	marginTop: {
+		marginTop: "0%",
+	},
+}));
 
-function CustomTable(table: {Heads: any, rows: any}) {
-  const { classes, theme } = useStyle()
+function CustomTable(table: { Heads: any; rows: any }) {
+	const { classes, theme } = useStyle();
 
-  return (
-    <Table className={classes.marginTop}>
-        <thead>
-            <tr>
-              {table.Heads}
-            </tr>
-        </thead>
-        <tbody>{table.rows}</tbody>
-    </Table>
-  )
+	return (
+		<Table className={classes.marginTop}>
+			<thead>
+				<tr>{table.Heads}</tr>
+			</thead>
+			<tbody>{table.rows}</tbody>
+		</Table>
+	);
 }
 
-export default CustomTable
+export default CustomTable;

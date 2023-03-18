@@ -1,14 +1,11 @@
-import { Anchor } from '@mantine/core'
+import { Anchor } from "@mantine/core";
 
-function CustomeLink(link: {label: string, underline?: boolean, noMarginTop?: boolean}) {
-  return (
-    <Anchor 
-        underline={link.underline == true ? true : false} 
-        style={{marginTop: link.noMarginTop == true ? "0" : "4%"}}
-    >
-      {link.label}
-    </Anchor>
-  )
+function CustomeLink(link: { label: string; underline?: boolean; noMarginTop?: boolean }) {
+	return (
+		<Anchor underline={link.underline == true} style={{ marginTop: link.noMarginTop == true ? "0" : "4%" }}>
+			{link.label}
+		</Anchor>
+	);
 }
 
-export default CustomeLink
+export default CustomeLink;

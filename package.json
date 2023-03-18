@@ -50,8 +50,9 @@
 	},
 	"dependencies": {
 		"@commitlint/cli": "^17.2.0",
-		"@commitlint/config-conventional": "^17.2.0"
+		"@commitlint/config-conventional": "^17.2.0",
+		"react-router-dom": "^6.9.0",
+		"supertokens-web-js": "^0.5.0"
 	},
 	"packageManager": "pnpm@7.0.1"
 }
-

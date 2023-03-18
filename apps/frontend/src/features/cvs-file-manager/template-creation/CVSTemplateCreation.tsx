@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Stepper, createStyles, Grid, Center, Title, NumberInput, Stack, Select, Text } from "@mantine/core";
+import { Stepper, createStyles, Grid, Center, Title, Stack } from "@mantine/core";
 import Btn from "../../profile-ui/Btn";
 import { useForm } from "@mantine/form";
 import { CVSTemplateCreation01 } from "./CVSTemplateCreation01";
@@ -22,7 +22,7 @@ const useStyles = createStyles((theme) => ({
 		padding: "3% 2%",
 		// [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
 		// 	width: "100%"
-		// }, 
+		// },
 	},
 	grid2: {
 		display: "flex",
@@ -32,65 +32,58 @@ const useStyles = createStyles((theme) => ({
 		width: "100%",
 	},
 	height: {
-		height: (window.innerHeight/6)*3.8,
-	}
+		height: (window.innerHeight / 6) * 3.8,
+	},
 }));
 
 export function CVSTemplateCreation() {
 	const [active, setActive] = useState(0);
 	const { classes, theme } = useStyles();
-	const [files, setFiles] = useState()
-	const [formType, setFormType] = useState("structure")
+	const [files, setFiles] = useState();
+	const [formType, setFormType] = useState("structure");
 
 	const form = useForm({
 		initialValues: {
-		  headerLines: '',
-		  footerLines: '',
-		  seperator: "",
-		  fileEncoding: "",
+			headerLines: "",
+			footerLines: "",
+			seperator: "",
+			fileEncoding: "",
 		},
 	});
 
 	const onSubmit = (values: any) => {
 		console.log(values);
-		console.log(values['headerLines']);
-		setFormType("dataDefinition")
-	}
+		console.log(values.headerLines);
+		setFormType("dataDefinition");
+	};
 
 	return (
 		<>
 			<Stepper active={active} breakpoint="sm" onStepClick={setActive} className={classes.main}>
-				<Stepper.Step label={window.innerWidth <= 500 ? null : "Select Template"} className={classes.label}></Stepper.Step>
-				<Stepper.Step label={window.innerWidth <= 800 ? null : "Choose Dashboard Preferences"} className={classes.label}></Stepper.Step>
+				<Stepper.Step
+					label={window.innerWidth <= 500 ? null : "Select Template"}
+					className={classes.label}
+				></Stepper.Step>
+				<Stepper.Step
+					label={window.innerWidth <= 800 ? null : "Choose Dashboard Preferences"}
+					className={classes.label}
+				></Stepper.Step>
 				<Stepper.Completed>Completed, click back button to get to previous step</Stepper.Completed>
 			</Stepper>
 			<Grid mt={20} ml={0} mr={0} columns={48}>
 				<Grid.Col sm={48} md={32} className={classes.grid}>
-					{
-						files == null ?
-							<CVSTemplateCreation01 setfiles={setFiles} />
-						: <CVSTemplateCreation02 files={files} />	
-					}
+					{files == null ? <CVSTemplateCreation01 setfiles={setFiles} /> : <CVSTemplateCreation02 files={files} />}
 				</Grid.Col>
 
 				{/* Structure Definition */}
 				<Grid.Col sm={48} md={15} offset={1} className={classes.grid}>
 					<Center className={classes.grid2}>
-						<Title order={3}>
-							{formType == "structure" ? "Structure Definition" : "Data Definition"}
-						</Title>
+						<Title order={3}>{formType == "structure" ? "Structure Definition" : "Data Definition"}</Title>
 						<form onSubmit={form.onSubmit((values) => onSubmit(values))}>
 							<Stack justify="space-between" className={classes.height}>
-								{
-									formType == "structure" ?
-										<CSVForm_01 form={form} />
-									: <DataDefinition /> 						
-								}
-								
-								<Btn 
-									label={formType == "structure" ? "Continue" : "Save Template"}
-									type="submit"
-								/>
+								{formType == "structure" ? <CSVForm_01 form={form} /> : <DataDefinition />}
+
+								<Btn label={formType == "structure" ? "Continue" : "Save Template"} type="submit" />
 							</Stack>
 						</form>
 					</Center>

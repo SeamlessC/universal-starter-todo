@@ -53,12 +53,7 @@ const Shell: React.FC<ShellProps> = () => {
 						</div>
 					</div>
 					{/* placeholder for user profile */}
-					<Btn 
-						label="Share"
-						btnWidth="10%"
-						margin="10px"
-						onClick={() => setOpened(true)}
-					/>
+					<Btn label="Share" btnWidth="10%" margin="10px" onClick={() => setOpened(true)} />
 					<CollaborationFeatures opened={opened} setOpened={setOpened} />
 				</Header>
 			}
