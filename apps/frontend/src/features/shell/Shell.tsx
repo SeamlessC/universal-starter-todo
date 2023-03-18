@@ -6,6 +6,7 @@ import { aiesecmanLogo } from "../_common/assets/exports";
 import Home from "../home/Home";
 import Btn from "../profile-ui/Btn";
 import { CollaborationFeatures } from "../collaboration-features/CollaborationFeatures";
+import { logout } from "../authentication/AuthFunctions";
 
 interface ShellProps {}
 
@@ -55,6 +56,8 @@ const Shell: React.FC<ShellProps> = () => {
 					{/* placeholder for user profile */}
 					<Btn label="Share" btnWidth="10%" margin="10px" onClick={() => setOpened(true)} />
 					<CollaborationFeatures opened={opened} setOpened={setOpened} />
+
+					<Btn label="Logout" btnWidth="10%" margin="10px" onClick={() => logout()} />
 				</Header>
 			}
 		>

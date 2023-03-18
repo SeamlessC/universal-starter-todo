@@ -1,9 +1,15 @@
 import { useToggle } from "@mantine/hooks";
 import { SignUp } from "./SignUp";
 import { Login } from "./Login";
+import { useEffect } from "react";
+import { handleGoogleCallback } from "./AuthFunctions";
 
 export function Authentication() {
 	const [type, toggle] = useToggle(["login", "register"]);
+
+	useEffect(() => {
+		handleGoogleCallback()
+	})
 
 	return (
 		<div>

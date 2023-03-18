@@ -4,6 +4,8 @@ import { Authentication } from "./features/authentication/Authentication";
 import SuperTokens from "supertokens-web-js";
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Shell from "./features/shell/Shell";
 
 const { Suspense } = React;
 
@@ -17,12 +19,31 @@ SuperTokens.init({
 });
 
 function App() {
+	// return (
+	// 	// <RelayEnvironmentProvider environment={relayEnv}>
+	// 	<Suspense fallback={"Loading..."}>
+	// 		<div className="App">
+	// 			{/* <Shell></Shell> */}
+	// 			<Authentication />
+	// 		</div>
+	// 	</Suspense>
+	// 	// </RelayEnvironmentProvider>
+	// );
+
 	return (
 		// <RelayEnvironmentProvider environment={relayEnv}>
 		<Suspense fallback={"Loading..."}>
 			<div className="App">
 				{/* <Shell></Shell> */}
-				<Authentication />
+				<Router>
+					<Routes>
+						<Route>
+						<Route path="/" element={<Authentication />} />
+							<Route path="/auth/callback/google" element={<Authentication />} />
+							<Route path="/home" element={<Shell  />} />
+						</Route>
+					</Routes>
+				</Router>
 			</div>
 		</Suspense>
 		// </RelayEnvironmentProvider>

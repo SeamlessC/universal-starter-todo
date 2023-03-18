@@ -4,6 +4,7 @@ import {
 	getAuthorisationURLWithQueryParamsAndSetState,
 	thirdPartySignInAndUp,
 } from "supertokens-web-js/recipe/thirdpartyemailpassword";
+import Session from "supertokens-web-js/recipe/session";
 
 export async function signInClicked(email: string, password: string) {
 	try {
@@ -32,8 +33,7 @@ export async function signInClicked(email: string, password: string) {
 		} else {
 			// sign in successful. The session tokens are automatically handled by
 			// the frontend SDK.
-			console.log("You Logged...");
-			window.location.href = "/homepage";
+			window.location.href = "/home";
 		}
 	} catch (err: any) {
 		if (err.isSuperTokensGeneralError === true) {
@@ -76,7 +76,7 @@ export async function signUpClicked(email: string, password: string) {
 			// sign up successful. The session tokens are automatically handled by
 			// the frontend SDK.
 			console.log("Signup Success");
-			window.location.href = "/main";
+			window.location.href = "/";
 		}
 	} catch (err: any) {
 		if (err.isSuperTokensGeneralError === true) {
@@ -147,3 +147,8 @@ export async function handleGoogleCallback() {
 		}
 	}
 }
+
+export async function logout () {
+	await Session.signOut(); 
+	window.location.href = "/";
+  }
