@@ -1,6 +1,6 @@
 import { Card } from "@mantine/core";
-import AreaChart from "../widgets/charts/area_chart/AreaChart";
-import LineChartUI from "../widgets/charts/line_chart/LineChart";
+import AreaChart from "../widgets/charts/AreaChart";
+import LineChartUI from "../widgets/charts/LineChart";
 
 function DashboardUIGraph(info: { info: String }) {
 	return (
