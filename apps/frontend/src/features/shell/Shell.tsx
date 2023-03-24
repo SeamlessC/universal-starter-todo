@@ -57,7 +57,7 @@ const Shell: React.FC<ShellProps> = () => {
 					<Btn label="Share" btnWidth="10%" margin="10px" onClick={() => setOpened(true)} />
 					<CollaborationFeatures opened={opened} setOpened={setOpened} />
 
-					<Btn label="Logout" btnWidth="10%" margin="10px" onClick={() => logout()} />
+					<Btn label="Logout" btnWidth="10%" margin="10px" onClick={async () => await logout()} />
 				</Header>
 			}
 		>

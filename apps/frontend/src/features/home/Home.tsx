@@ -1,8 +1,6 @@
 import { Container } from "@mantine/core";
 import React from "react";
-import LogosUI from "../logos-ui/LogosUI";
 import DashboardUI from "../dashboard_ui/DashboardUI";
-import { HomeDashboard } from "./HomeDashboard";
 
 interface HomeProps {}
 

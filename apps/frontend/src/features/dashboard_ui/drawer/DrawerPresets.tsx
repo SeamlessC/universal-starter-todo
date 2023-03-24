@@ -1,100 +1,78 @@
-import { Anchor, createStyles, Group, ScrollArea, Text, TextInput  } from '@mantine/core'
-import Search from '../../../assets/search.png';
-import FacebookIcon from '../../../assets/facebook.png';
-import AdReport from '../../../assets/ad_report.png';
-import DashboardAccordion from '../DashboardAccordion';
-import FixDashboardErrors from './drawer-integrations/FixDashboardErrors';
-import SaveAsTemplate from './drawer-integrations/SaveAsTemplate';
-import ManageIntegrations from './drawer-integrations/ManageIntegrations';
-import CloneDashboard from './drawer-integrations/CloneDashboard';
+import { Anchor, createStyles, Group, ScrollArea, Text, TextInput } from "@mantine/core";
+import Search from "../../../assets/search.png";
+import FacebookIcon from "../../../assets/facebook.png";
+import AdReport from "../../../assets/ad_report.png";
+import DashboardAccordion from "../DashboardAccordion";
+import FixDashboardErrors from "./drawer-integrations/FixDashboardErrors";
+import SaveAsTemplate from "./drawer-integrations/SaveAsTemplate";
+import ManageIntegrations from "./drawer-integrations/ManageIntegrations";
+import CloneDashboard from "./drawer-integrations/CloneDashboard";
 
 const useStyles = createStyles((theme) => ({
-  search: {
-    [theme.fn.smallerThan('xs')]: {
-      display: 'none',
-    },
-  },
-  navToIntegrateLink: {
-
-  },
-  presetContainer: {
-    padding: "20px",
-  }
+	search: {
+		[theme.fn.smallerThan("xs")]: {
+			display: "none",
+		},
+	},
+	navToIntegrateLink: {},
+	presetContainer: {
+		padding: "20px",
+	},
 }));
 
 const presetInfo = [
-  {
-    name: "Facebook Insights",
-    icon: FacebookIcon,
-    data: [
-      {name: "HTL Group",},
-      {name: "ASD",},
-      {name: "SeamlessC",},
-      {name: "MMMMMM",},
-    ],
-  },
-  {
-    name: "Google Analytics",
-    icon: AdReport,
-    data: [
-      {name: "ASD",},
-      {name: "SeamlessC",},
-      {name: "MMMMMM",},
-    ],
-  },
-  {
-    name: "Google Insights",
-    icon: AdReport,
-    data: [
-      {name: "1111111111",},
-      {name: "SeamlessC",},
-      {name: "PKIIKMHHG",},
-    ],
-  },
+	{
+		name: "Facebook Insights",
+		icon: FacebookIcon,
+		data: [{ name: "HTL Group" }, { name: "ASD" }, { name: "SeamlessC" }, { name: "MMMMMM" }],
+	},
+	{
+		name: "Google Analytics",
+		icon: AdReport,
+		data: [{ name: "ASD" }, { name: "SeamlessC" }, { name: "MMMMMM" }],
+	},
+	{
+		name: "Google Insights",
+		icon: AdReport,
+		data: [{ name: "1111111111" }, { name: "SeamlessC" }, { name: "PKIIKMHHG" }],
+	},
 ];
 
+const DrawerPresets = (set: { showBody: string; popUpLabel: string | null }) => {
+	const { classes, theme } = useStyles();
 
-const DrawerPresets = ( set: {showBody: string, popUpLabel: string|null }) => {
-  const { classes, theme } = useStyles();
+	return (
+		<ScrollArea>
+			<div className={classes.presetContainer}>
+				{set.popUpLabel != null ? (
+					<Group style={{ marginBottom: "10px" }}>
+						<img src={AdReport} width={30} />
+						<Text>{set.popUpLabel}</Text>
+					</Group>
+				) : null}
 
-  return (
-    <ScrollArea>
-      <div className={classes.presetContainer}>
-        {
-          set.popUpLabel != null ? 
-           <Group style={{marginBottom: "10px"}}>
-              <img src={AdReport} width={30} />
-              <Text>{set.popUpLabel}</Text>
-           </Group>
-          : null
-        }
-  
-        <TextInput
-          className={classes.search}
-          placeholder="Search"
-          icon={<img src={Search} width={20} />}
-        />
-  
-        {
-          set.showBody == "default" ?
-            <div>
-              <DashboardAccordion type='preset' displayInfo={presetInfo} />
-              <Group className={classes.navToIntegrateLink}>
-                <Text>Need to connect more integrations?</Text>
-                <Anchor>Go To integrations</Anchor>
-              </Group>
-            </div>
-          : set.showBody == "Fix Dashboard Errors" ?
-            <FixDashboardErrors /> 
-          : set.showBody == "Save As Template" ?
-            <SaveAsTemplate />
-          : set.showBody == "Manage Integrations" ?
-            <ManageIntegrations />
-          : <CloneDashboard /> 
-        }
-      </div>
-    </ScrollArea>
-  )
-}
+				<TextInput className={classes.search} placeholder="Search" icon={<img src={Search} width={20} />} />
 
-export default DrawerPresets
+				{set.showBody == "default" ? (
+					<div>
+						<DashboardAccordion type="preset" displayInfo={presetInfo} />
+						<Group className={classes.navToIntegrateLink}>
+							<Text>Need to connect more integrations?</Text>
+							<Anchor>Go To integrations</Anchor>
+						</Group>
+					</div>
+				) : set.showBody == "Fix Dashboard Errors" ? (
+					<FixDashboardErrors />
+				) : set.showBody == "Save As Template" ? (
+					<SaveAsTemplate />
+				) : set.showBody == "Manage Integrations" ? (
+					<ManageIntegrations />
+				) : (
+					<CloneDashboard />
+				)}
+			</div>
+		</ScrollArea>
+	);
+};
+
+export default DrawerPresets;

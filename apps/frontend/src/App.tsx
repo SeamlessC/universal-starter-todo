@@ -38,9 +38,9 @@ function App() {
 				<Router>
 					<Routes>
 						<Route>
-						<Route path="/" element={<Authentication />} />
+							<Route path="/" element={<Authentication />} />
 							<Route path="/auth/callback/google" element={<Authentication />} />
-							<Route path="/home" element={<Shell  />} />
+							<Route path="/home" element={<Shell />} />
 						</Route>
 					</Routes>
 				</Router>

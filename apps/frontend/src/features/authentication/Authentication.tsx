@@ -8,8 +8,8 @@ export function Authentication() {
 	const [type, toggle] = useToggle(["login", "register"]);
 
 	useEffect(() => {
-		handleGoogleCallback()
-	})
+		handleGoogleCallback();
+	});
 
 	return (
 		<div>

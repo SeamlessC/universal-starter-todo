@@ -10,7 +10,6 @@ import DashboardPreferences from "./dashboard-preferences/DashboardPreferences";
 import AddDataSources from "./dashboard-add-data-sources/AddDataSources";
 import Integrations from "../Integrations/Integrations";
 
-
 export function HomeDashboard() {
 	const [templateType, setTemplateType] = useState("periodic");
 
@@ -48,11 +47,10 @@ export function HomeDashboard() {
 				</Grid>
 			</Container>
 
-			<DashboardPreferences />	
+			<DashboardPreferences />
 
 			<AddDataSources />
 			<Integrations />
-
 		</div>
 	);
 }

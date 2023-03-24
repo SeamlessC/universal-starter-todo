@@ -148,7 +148,7 @@ export async function handleGoogleCallback() {
 	}
 }
 
-export async function logout () {
-	await Session.signOut(); 
+export async function logout() {
+	await Session.signOut();
 	window.location.href = "/";
-  }
+}
