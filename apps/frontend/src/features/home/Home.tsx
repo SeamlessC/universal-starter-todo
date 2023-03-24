@@ -1,6 +1,8 @@
 import { Container } from "@mantine/core";
 import React from "react";
 import LogosUI from "../logos-ui/LogosUI";
+import DashboardUI from "../dashboard_ui/DashboardUI";
+import { HomeDashboard } from "./HomeDashboard";
 
 interface HomeProps {}
 
@@ -17,9 +19,10 @@ const Home: React.FC<HomeProps> = () => {
 				{/* <ProfileUI /> */}
 				{/* <CVSFileManager /> */}
 				{/* <CVSTemplateCreation /> */}
-				<LogosUI />
+				{/* <LogosUI /> */}
 				{/* <CustomTemplates /> */}
 				{/* <CreateCustomTemplate /> */}
+				<DashboardUI />
 			</Container>
 		</>
 	);
