@@ -18,24 +18,24 @@ const types = (classes: { typeCard: string }) => {
 					<Grid.Col span={8}>
 						<Grid gutter="sm">
 							<Grid.Col span={4}>
-								<DashboardUIGraph info={1} />
+								<DashboardUIGraph info={'line-chart'} />
 							</Grid.Col>
 							<Grid.Col span={4}>
-								<DashboardUIGraph info={2} />
+								<DashboardUIGraph info={'area-chart'} />
 							</Grid.Col>
 							<Grid.Col span={4}>
-								<DashboardUIGraph info={3} />
+								<DashboardUIGraph info={'line-chart'} />
 							</Grid.Col>
 						</Grid>
 					</Grid.Col>
 					<Grid.Col span={4}>
-						<DashboardUIGraph info={4} />
+						<DashboardUIGraph info={'line-chart'} />
 					</Grid.Col>
 					<Grid.Col span={8}>
-						<DashboardUIGraph info={5} />
+						<DashboardUIGraph info={'area-chart'} />
 					</Grid.Col>
 					<Grid.Col span={4}>
-						<DashboardUIGraph info={6} />
+						<DashboardUIGraph info={'line-chart'} />
 					</Grid.Col>
 				</Grid>
 			</Card>

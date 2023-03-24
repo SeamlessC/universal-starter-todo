@@ -6,13 +6,17 @@ importers:
     specifiers:
       '@commitlint/cli': ^17.2.0
       '@commitlint/config-conventional': ^17.2.0
+      chart.js: ^4.2.1
       prettier: latest
+      react-chartjs-2: ^5.2.0
       react-router-dom: ^6.9.0
       supertokens-web-js: ^0.5.0
       turbo: latest
     dependencies:
       '@commitlint/cli': 17.2.0
       '@commitlint/config-conventional': 17.2.0
+      chart.js: 4.2.1
+      react-chartjs-2: 5.2.0_chart.js@4.2.1
       react-router-dom: 6.9.0
       supertokens-web-js: 0.5.0
     devDependencies:
@@ -3352,6 +3356,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
+
+  /@kurkle/color/0.3.2:
+    resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
+    dev: false
 
   /@mantine/core/5.10.1_2cvcp2fmkimjo6eswn6as62zyy:
     resolution: {integrity: sha512-ZVVrakV8QUFxAUNh8LCyJS6gKKpQbXSh2OQ757L/Q07aYNaYFvgwuSyI7+p32oGrgc+RZ53KroB7zZUVj/hvEw==}
@@ -7287,6 +7295,13 @@ packages:
 
   /chardet/0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
+
+  /chart.js/4.2.1:
+    resolution: {integrity: sha512-6YbpQ0nt3NovAgOzbkSSeeAQu/3za1319dPUQTXn9WcOpywM8rGKxJHrhS8V8xEkAlk8YhEfjbuAPfUyp6jIsw==}
+    engines: {pnpm: ^7.0.0}
+    dependencies:
+      '@kurkle/color': 0.3.2
+    dev: false
 
   /check-error/1.0.2:
     resolution: {integrity: sha512-BrgHpW9NURQgzoNyjfq0Wu6VFO6D7IZEmJNdtgNqpzGG8RuNFHt2jQxWlAs4HMe119chBnv+34syEZtc6IhLtA==}
@@ -15015,6 +15030,15 @@ packages:
       minimist: 1.2.7
       strip-json-comments: 2.0.1
     dev: true
+
+  /react-chartjs-2/5.2.0_chart.js@4.2.1:
+    resolution: {integrity: sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA==}
+    peerDependencies:
+      chart.js: ^4.1.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      chart.js: 4.2.1
+    dev: false
 
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
