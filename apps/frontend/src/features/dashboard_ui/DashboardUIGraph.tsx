@@ -1,5 +1,6 @@
 import { Card } from "@mantine/core";
 import AreaChart from "../widgets/charts/AreaChart";
+import BarChart from "../widgets/charts/BarChart";
 import LineChartUI from "../widgets/charts/LineChart";
 
 function DashboardUIGraph(info: { info: String }) {
@@ -11,7 +12,9 @@ function DashboardUIGraph(info: { info: String }) {
 					? <LineChartUI />
 					: info.info == 'area-chart'
 						? <AreaChart />
-						: null
+						: info.info == 'bar-chart'
+							? <BarChart />
+							: null
 			}
 		</Card>
 	);
