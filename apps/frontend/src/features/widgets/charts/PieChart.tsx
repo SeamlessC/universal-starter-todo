@@ -2,42 +2,18 @@ import { useState } from 'react'
 import { Pie } from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
 import "chart.js/auto";
+import { faker } from '@faker-js/faker'
+import { chartLabels, pieChartColors } from './data';
 
 function PieChart() {
     const [userData, setUserData] = useState({
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: chartLabels,
         datasets: [
           {
             label: "Amount",
-            data: [20000, 3500, 2800, 5000, 8000, 1290, 8000, 3789, 2754, 9756, 11876, 5673],
-            backgroundColor: [
-                "darkRed",
-                "green",
-                "blue",
-                "darkPink",
-                "red",
-                "orange",
-                "purple",
-                "gold",
-                "darkBlue",
-                "pink",
-                "lightGreen",
-                "lightBlue"
-            ],
-            borderColor: [
-                "darkRed",
-                "green",
-                "blue",
-                "darkPink",
-                "red",
-                "orange",
-                "purple",
-                "gold",
-                "darkBlue",
-                "pink",
-                "lightGreen",
-                "lightBlue"
-            ],
+            data: chartLabels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+            backgroundColor: pieChartColors,
+            borderColor: pieChartColors,
             pointStyle: 'circle',
             pointHoverRadius: 4,
             lineTension: 0.5,

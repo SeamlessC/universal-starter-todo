@@ -2,14 +2,16 @@ import { useState } from 'react'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
 import "chart.js/auto";
+import { chartLabels } from './data';
+import { faker } from '@faker-js/faker'
 
 function BarChart() {
     const [userData, setUserData] = useState({
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: chartLabels,
         datasets: [
           {
             label: "Amount",
-            data: [20000, 3500, 2800, 5000, 8000, 1290, 8000, 3789, 2754, 9756, 11876, 5673],
+            data: chartLabels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
             backgroundColor: 'green',
             borderColor: "green",
             pointStyle: 'circle',

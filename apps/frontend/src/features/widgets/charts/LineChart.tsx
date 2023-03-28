@@ -2,14 +2,16 @@ import { useState } from 'react'
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
 import "chart.js/auto";
+import { chartLabels } from './data';
+import { faker } from '@faker-js/faker'
 
 function LineChartUI() {
     const [userData, setUserData] = useState({
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        labels: chartLabels,
         datasets: [
           {
             label: "Values",
-            data: [2000, 3500, 2800, 5000, 8000, 1290],
+            data: chartLabels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
             backgroundColor: "blue",
             borderColor: "blue",
             pointStyle: 'circle',

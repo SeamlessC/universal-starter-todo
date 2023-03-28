@@ -12,3 +12,18 @@ export var chartLabels: string[] = [
     "Nov", 
     "Dec"
 ];
+
+export const pieChartColors: string[] = [
+    "darkRed",
+    "green",
+    "blue",
+    "darkPink",
+    "red",
+    "orange",
+    "purple",
+    "gold",
+    "darkBlue",
+    "pink",
+    "lightGreen",
+    "lightBlue"
+];

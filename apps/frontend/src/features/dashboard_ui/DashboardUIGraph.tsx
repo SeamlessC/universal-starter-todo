@@ -13,7 +13,7 @@ function DashboardUIGraph(info: { type: String, labels: string[]}) {
 				info.type == 'line-chart'
 					? <LineChartUI />
 					: info.type == 'area-chart'
-						? <AreaChart />
+						? <AreaChart labels={info.labels} />
 						: info.type == 'bar-chart'
 							? <BarChart />
 							: info.type == 'pie-chart'

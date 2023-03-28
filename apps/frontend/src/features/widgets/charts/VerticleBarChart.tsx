@@ -21,8 +21,8 @@ function VerticleBarChart(info: {label: string[]}) {
           {
             label: "Amount 2",
             data: info.label.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-            backgroundColor: 'blue',
-            borderColor: "blue",
+            backgroundColor: 'lightGreen',
+            borderColor: "lightGreen",
             pointStyle: 'circle',
             pointHoverRadius: 4,
             lineTension: 0.5,

@@ -2,14 +2,15 @@ import { useState } from 'react'
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
 import "chart.js/auto";
+import { faker } from '@faker-js/faker'
 
-function AreaChart() {
+function AreaChart(info: {labels: string[]}) {
     const [userData, setUserData] = useState({
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        labels: info.labels,
         datasets: [
           {
             label: "Amount",
-            data: [20000, 3500, 2800, 5000, 8000, 1290],
+            data: info.labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
             backgroundColor: 'rgba(235, 52, 52, 0.5)',
             borderColor: "red",
             pointStyle: 'circle',
