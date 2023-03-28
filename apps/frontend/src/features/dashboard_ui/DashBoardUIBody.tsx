@@ -1,5 +1,7 @@
 import { Card, createStyles, Grid } from "@mantine/core";
+import { chartLabels } from "../widgets/charts/data";
 import DashboardUIGraph from "./DashboardUIGraph";
+import { faker } from '@faker-js/faker'
 
 const useStyles = createStyles((theme) => ({
 	typeCard: {
@@ -18,24 +20,30 @@ const types = (classes: { typeCard: string }) => {
 					<Grid.Col span={8}>
 						<Grid gutter="sm">
 							<Grid.Col span={4}>
-								<DashboardUIGraph info={'line-chart'} />
+								<DashboardUIGraph 
+									type={'line-chart'} 
+									labels={chartLabels} 
+								/>
 							</Grid.Col>
 							<Grid.Col span={4}>
-								<DashboardUIGraph info={'bar-chart'} />
+								<DashboardUIGraph 
+									type={'bar-chart'} 
+									labels={chartLabels} 
+								/>
 							</Grid.Col>
 							<Grid.Col span={4}>
-								<DashboardUIGraph info={'pie-chart'} />
+								<DashboardUIGraph type={'pie-chart'} labels={chartLabels} />
 							</Grid.Col>
 						</Grid>
 					</Grid.Col>
 					<Grid.Col span={4}>
-						<DashboardUIGraph info={'bar-chart'} />
+						<DashboardUIGraph type={'verticle-bar-chart'} labels={chartLabels} />
 					</Grid.Col>
 					<Grid.Col span={8}>
-						<DashboardUIGraph info={'area-chart'} />
+						<DashboardUIGraph type={'area-chart'} labels={chartLabels}  />
 					</Grid.Col>
 					<Grid.Col span={4}>
-						<DashboardUIGraph info={'line-chart'} />
+						<DashboardUIGraph type={'line-chart'} labels={chartLabels}  />
 					</Grid.Col>
 				</Grid>
 			</Card>

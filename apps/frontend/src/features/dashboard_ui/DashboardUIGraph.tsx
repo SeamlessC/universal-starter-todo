@@ -3,21 +3,24 @@ import AreaChart from "../widgets/charts/AreaChart";
 import BarChart from "../widgets/charts/BarChart";
 import LineChartUI from "../widgets/charts/LineChart";
 import PieChart from "../widgets/charts/PieChart";
+import VerticleBarChart from "../widgets/charts/VerticleBarChart";
 
-function DashboardUIGraph(info: { info: String }) {
+function DashboardUIGraph(info: { type: String, labels: string[]}) {
 	return (
 		<Card shadow="sm" p="lg" radius="md" withBorder>
 			{/* {info.info} */}
 			{
-				info.info == 'line-chart'
+				info.type == 'line-chart'
 					? <LineChartUI />
-					: info.info == 'area-chart'
+					: info.type == 'area-chart'
 						? <AreaChart />
-						: info.info == 'bar-chart'
+						: info.type == 'bar-chart'
 							? <BarChart />
-							: info.info == 'pie-chart'
+							: info.type == 'pie-chart'
 								? <PieChart />
-								: null
+								: info.type == 'verticle-bar-chart'
+									? <VerticleBarChart label={info.labels} />
+									: null
 			}
 		</Card>
 	);
