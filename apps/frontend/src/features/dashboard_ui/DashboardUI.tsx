@@ -2,6 +2,7 @@ import { createStyles } from "@mantine/core";
 import AreaChart from "../widgets/charts/AreaChart";
 import BarChart from "../widgets/charts/BarChart";
 import { chartLabels, multiLineChartData, singleLineChartData } from "../widgets/charts/data";
+import DoughnutChart from "../widgets/charts/Doughnut";
 import GaugeGraph from "../widgets/charts/GaugeChart";
 import LineChartUI from "../widgets/charts/LineChart";
 import PieChart from "../widgets/charts/PieChart";
@@ -38,6 +39,7 @@ function DashboardUI() {
 			<VerticleBarChart label={chartLabels} />
 			<GaugeGraph id="afq" value={20} title="geg" />
 			<BarChart />
+			<DoughnutChart />
 		</div>
 	);
 }
