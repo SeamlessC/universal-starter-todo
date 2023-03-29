@@ -5,20 +5,10 @@ import "chart.js/auto";
 import { chartLabels } from './data';
 import { faker } from '@faker-js/faker'
 
-function LineChartUI() {
+function LineChartUI(info: {data: any}) {
     const [userData, setUserData] = useState({
         labels: chartLabels,
-        datasets: [
-          {
-            label: "Values",
-            data: chartLabels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-            backgroundColor: "blue",
-            borderColor: "blue",
-            pointStyle: 'circle',
-            pointHoverRadius: 4,
-            lineTension: 0.5
-          },
-        ]
+        datasets: info.data,
     })
 
       //tooltip title

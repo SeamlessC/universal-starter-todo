@@ -27,7 +27,7 @@ const types = (classes: { typeCard: string }) => {
 							</Grid.Col>
 							<Grid.Col span={4}>
 								<DashboardUIGraph 
-									type={'verticle-bar-chart'} 
+									type={'multi-line-chart'} 
 									labels={chartLabels} 
 								/>
 							</Grid.Col>

@@ -1,6 +1,7 @@
 import { Card } from "@mantine/core";
 import AreaChart from "../widgets/charts/AreaChart";
 import BarChart from "../widgets/charts/BarChart";
+import { multiLineChartData, singleLineChartData } from "../widgets/charts/data";
 import LineChartUI from "../widgets/charts/LineChart";
 import PieChart from "../widgets/charts/PieChart";
 import VerticleBarChart from "../widgets/charts/VerticleBarChart";
@@ -11,7 +12,7 @@ function DashboardUIGraph(info: { type: String, labels: string[]}) {
 			{/* {info.info} */}
 			{
 				info.type == 'line-chart'
-					? <LineChartUI />
+					? <LineChartUI data={singleLineChartData} />
 					: info.type == 'area-chart'
 						? <AreaChart labels={info.labels} />
 						: info.type == 'bar-chart'
@@ -20,7 +21,9 @@ function DashboardUIGraph(info: { type: String, labels: string[]}) {
 								? <PieChart />
 								: info.type == 'verticle-bar-chart'
 									? <VerticleBarChart label={info.labels} />
-									: null
+									: info.type == 'multi-line-chart'
+										? <LineChartUI data={multiLineChartData} />
+										: null
 			}
 		</Card>
 	);

@@ -1,4 +1,10 @@
 import { createStyles } from "@mantine/core";
+import AreaChart from "../widgets/charts/AreaChart";
+import BarChart from "../widgets/charts/BarChart";
+import { chartLabels, multiLineChartData, singleLineChartData } from "../widgets/charts/data";
+import LineChartUI from "../widgets/charts/LineChart";
+import PieChart from "../widgets/charts/PieChart";
+import VerticleBarChart from "../widgets/charts/VerticleBarChart";
 import DashBoardUIBody from "./DashBoardUIBody";
 import DashBoardUIHeader from "./DashBoardUIHeader";
 import DashboardUIDrawer from "./drawer/DashboardUIDrawer";
@@ -19,15 +25,17 @@ function DashboardUI() {
 	const { classes, theme } = useStyles();
 
 	return (
-		// <Card shadow="sm" p="lg" radius="md" withBorder className={classes.cardBg}>
-		//     <DashBoardUIHeader />
-		//     <DashBoardUIBody />
-		//     <DashboardUIDrawer />
-		// </Card>
 		<div className={classes.cardBg}>
 			<DashBoardUIHeader />
 			<DashBoardUIBody />
 			<DashboardUIDrawer />
+
+			<AreaChart labels={chartLabels} />
+			<PieChart />
+			<LineChartUI data={singleLineChartData} />
+			<LineChartUI data={multiLineChartData} />
+			<VerticleBarChart label={chartLabels} />
+			<BarChart />
 		</div>
 	);
 }
