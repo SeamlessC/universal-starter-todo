@@ -62,3 +62,19 @@ export const singleLineChartData = [
       lineTension: 0.5
     },
 ];
+
+
+export const listViewData = [
+  {
+    img: "https://cdn.shopify.com/s/files/1/2439/4751/products/Notice-Please-Wipe-Down-Your-Work-Area-Regularly-Red.jpg?v=1601953916",
+    text: "A website (also written as a web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Websites are typically ",
+  },
+  {
+    img: "https://cdn.shopify.com/s/files/1/2439/4751/products/Notice-Please-Wipe-Down-Your-Work-Area-Regularly-Red.jpg?v=1601953916",
+    text: "A website (also written as a web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Websites are typically",
+  },
+  {
+    img: "https://cdn.shopify.com/s/files/1/2439/4751/products/Notice-Please-Wipe-Down-Your-Work-Area-Regularly-Red.jpg?v=1601953916",
+    text: "A website (also written as a web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Websites are typically",
+  },
+];
