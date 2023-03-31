@@ -4,6 +4,7 @@ import BarChart from "../widgets/charts/BarChart";
 import { chartLabels, listViewData, multiLineChartData, singleLineChartData } from "../widgets/charts/data";
 import DoughnutChart from "../widgets/charts/Doughnut";
 import GaugeGraph from "../widgets/charts/GaugeChart";
+import HorizontalBarChart from "../widgets/charts/HorizontalBarChart";
 import LineChartUI from "../widgets/charts/LineChart";
 import ListView from "../widgets/charts/list-views-tables/ListView";
 import PieChart from "../widgets/charts/PieChart";
@@ -34,6 +35,7 @@ function DashboardUI() {
 			<DashboardUIDrawer />
 
 			<ListView listData={listViewData}/>
+			<HorizontalBarChart />
 			<AreaChart labels={chartLabels} />
 			<PieChart />
 			<LineChartUI data={singleLineChartData} />
