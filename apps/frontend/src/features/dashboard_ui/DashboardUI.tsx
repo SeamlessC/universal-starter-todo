@@ -12,6 +12,7 @@ import VerticleBarChart from "../widgets/charts/VerticleBarChart";
 import DashBoardUIBody from "./DashBoardUIBody";
 import DashBoardUIHeader from "./DashBoardUIHeader";
 import DashboardUIDrawer from "./drawer/DashboardUIDrawer";
+import StatCard from "../widgets/charts/stats/Stats";
 
 const useStyles = createStyles((theme) => ({
 	cardBg: {
@@ -34,6 +35,22 @@ function DashboardUI() {
 			<DashBoardUIBody />
 			<DashboardUIDrawer />
 
+			<StatCard 
+				previousPeriodData={45}
+				previousPerionPosiive={true}
+				previousYearData={78}
+				previousYearPositive={false}
+				title={"clicks"}
+				value={6668}
+			/>
+			<StatCard 
+				previousPeriodData={80}
+				previousPerionPosiive={false}
+				previousYearData={12}
+				previousYearPositive={true}
+				title={"Impressions"}
+				value={12896}
+			/>
 			<ListView listData={listViewData}/>
 			<HorizontalBarChart />
 			<AreaChart labels={chartLabels} />
