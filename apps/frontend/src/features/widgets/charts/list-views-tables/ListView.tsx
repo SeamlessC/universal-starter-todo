@@ -19,7 +19,7 @@ function ListView(data: { listData: { img: string; text: string; }[] }) {
             {
                 data.listData.map((ele, i) => {
                     return (
-                        <Group className={classes.listContainer}>
+                        <Group className={classes.listContainer} key={i}>
                             <Image maw={100} mx="auto"  src={ele.img} alt="Random image" />
                             <Text className={classes.textContainer} align="justify" size="sm">
                                 {ele.text}

@@ -15,6 +15,7 @@ import DashboardUIDrawer from "./drawer/DashboardUIDrawer";
 import StatCard from "../widgets/charts/stats/Stats";
 import { IndicatorWithText } from "../widgets/charts/indicator-table/IndicatorWithText";
 import { ProgressBar } from "../widgets/charts/indicator-table/ProgressBar";
+import DataTableComponent from "../widgets/charts/DataTableComponent";
 
 const useStyles = createStyles((theme) => ({
 	cardBg: {
@@ -36,6 +37,9 @@ function DashboardUI() {
 			<DashBoardUIHeader />
 			<DashBoardUIBody />
 			<DashboardUIDrawer />
+
+
+			<DataTableComponent />
 
 			{
 				progressBarData.map((val, i) => {
