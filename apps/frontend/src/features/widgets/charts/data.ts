@@ -211,3 +211,11 @@ export const StatData = {
     }
   ]
 };
+
+export const progressBarData = [
+  {val: 100, color: "pink"},
+  {val: 250, color: "blue"},
+  {val: 500, color: "green"},
+  {val: 90, color: "red"},
+  {val: 78, color: "orange"},
+];

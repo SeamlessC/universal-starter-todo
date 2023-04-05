@@ -1,7 +1,7 @@
 import { createStyles } from "@mantine/core";
 import AreaChart from "../widgets/charts/AreaChart";
 import BarChart from "../widgets/charts/BarChart";
-import { chartLabels, listViewData, multiLineChartData, singleLineChartData } from "../widgets/charts/data";
+import { chartLabels, listViewData, multiLineChartData, progressBarData, singleLineChartData } from "../widgets/charts/data";
 import DoughnutChart from "../widgets/charts/Doughnut";
 import GaugeGraph from "../widgets/charts/GaugeChart";
 import HorizontalBarChart from "../widgets/charts/HorizontalBarChart";
@@ -13,6 +13,8 @@ import DashBoardUIBody from "./DashBoardUIBody";
 import DashBoardUIHeader from "./DashBoardUIHeader";
 import DashboardUIDrawer from "./drawer/DashboardUIDrawer";
 import StatCard from "../widgets/charts/stats/Stats";
+import { IndicatorWithText } from "../widgets/charts/indicator-table/IndicatorWithText";
+import { ProgressBar } from "../widgets/charts/indicator-table/ProgressBar";
 
 const useStyles = createStyles((theme) => ({
 	cardBg: {
@@ -35,6 +37,22 @@ function DashboardUI() {
 			<DashBoardUIBody />
 			<DashboardUIDrawer />
 
+			{
+				progressBarData.map((val, i) => {
+					return (
+						<div key={i} style={{width: "80%"}}>
+							<ProgressBar 
+								value={val.val} 
+								color={val.color} 
+								label={val.val.toString()} 
+								highestValue={500} 
+							/>
+						</div>
+					);
+				})
+			}
+			<IndicatorWithText color="lime" label="Maneesha"/>
+			<IndicatorWithText color="red" label="Lakshani"/>
 			<StatCard 
 				previousPeriodData={45}
 				previousPerionPosiive={true}
