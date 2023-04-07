@@ -1,7 +1,7 @@
 import { createStyles } from "@mantine/core";
 import AreaChart from "../widgets/charts/AreaChart";
 import BarChart from "../widgets/charts/BarChart";
-import { chartLabels, listViewData, multiLineChartData, progressBarData, singleLineChartData } from "../widgets/charts/data";
+import { chartLabels, columns, companies, listViewData, multiLineChartData, progressBarData, singleLineChartData, type Company, TopPosts, TopLandingPages } from "../widgets/charts/data";
 import DoughnutChart from "../widgets/charts/Doughnut";
 import GaugeGraph from "../widgets/charts/GaugeChart";
 import HorizontalBarChart from "../widgets/charts/HorizontalBarChart";
@@ -16,6 +16,7 @@ import StatCard from "../widgets/charts/stats/Stats";
 import { IndicatorWithText } from "../widgets/charts/indicator-table/IndicatorWithText";
 import { ProgressBar } from "../widgets/charts/indicator-table/ProgressBar";
 import DataTableComponent from "../widgets/charts/DataTableComponent";
+import ImageWithText from "../widgets/charts/list-views-tables/ImageWithText";
 
 const useStyles = createStyles((theme) => ({
 	cardBg: {
@@ -29,6 +30,36 @@ const useStyles = createStyles((theme) => ({
 	},
 }));
 
+export const topPostsHeaders = [
+	{ 
+	  accessor: 'img', 
+	  title: "Display Ad with image", 
+	  width: '70%', 
+	  render: (post: any) => (
+		<ImageWithText 
+			listData={{
+			  img: `${post.img}`,
+			  text: `${post.imgText}`,
+			}} 
+		/>
+	  ),
+	},
+	{ accessor: 'impresions', width: '15%', sortable: true },
+	{ accessor: 'engagedUsers', width: '15%', },
+  ]
+
+  export const topLandingPageHeaders = [
+	{ 
+	  accessor: 'landingPage', 
+	  title: "Landing Page", 
+	  width: '70%', 
+	  render: (page: any) => (
+		<IndicatorWithText color={page.color} label={page.page} />
+	  ),
+	},
+	{ accessor: 'session', width: '30%', sortable: true },
+  ]
+
 function DashboardUI() {
 	const { classes, theme } = useStyles();
 
@@ -39,7 +70,23 @@ function DashboardUI() {
 			<DashboardUIDrawer />
 
 
-			<DataTableComponent />
+			<DataTableComponent 
+				initialSortingField="name"
+				dataList={companies}
+				headerList={columns}
+			/>
+
+			<DataTableComponent 
+				initialSortingField="impressions"
+				dataList={TopPosts}
+				headerList={topPostsHeaders}
+			/>
+
+			<DataTableComponent 
+				initialSortingField="session"
+				dataList={TopLandingPages}
+				headerList={topLandingPageHeaders}
+			/>
 
 			{
 				progressBarData.map((val, i) => {

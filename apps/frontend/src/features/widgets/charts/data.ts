@@ -98,6 +98,21 @@ export const sortingTableData = [
   },
 ];
 
+export type Company = {
+  id: string;
+  name: string;
+  streetAddress: string;
+  city: string;
+  state: string;
+  missionStatement: string;
+};
+
+export const columns = [
+  { accessor: 'name', width: '40%', sortable: true },
+  { accessor: 'streetAddress', width: '60%' },
+  { accessor: 'city', width: 160, sortable: true },
+  { accessor: 'state', sortable: true },
+];
 
 export const companies = [
   {
@@ -116,70 +131,52 @@ export const companies = [
     "state": "NJ",
     "missionStatement": "mesh sexy synergies"
   },
+];
+
+
+export const TopPosts = [
   {
-    "id": "9a2e51e0-5bbe-49af-a748-546509792e28",
-    "name": "Champlin - Spencer",
-    "streetAddress": "5587 Jerde Hollow",
-    "city": "Deerfield Beach",
-    "state": "IN",
-    "missionStatement": "incentivize end-to-end e-markets"
+    img: "https://cdn.shopify.com/s/files/1/2439/4751/products/Notice-Please-Wipe-Down-Your-Work-Area-Regularly-Red.jpg?v=1601953916",
+    imgText: "aerghakerkg adgiaeurg",
+    impresions: 345, 
+    engagedUsers: 400,
+    name: "Display Ad with Image",
   },
   {
-    "id": "41e6105b-1115-4414-aaa6-ace1944ab3f2",
-    "name": "Zulauf, McLaughlin and Jaskolski",
-    "streetAddress": "673 Malinda Villages",
-    "city": "Georgetown",
-    "state": "SD",
-    "missionStatement": "revolutionize holistic action-items"
+    img: "https://stimg.cardekho.com/images/carexteriorimages/930x620/Lamborghini/Urus/4418/Lamborghini-Urus-V8/1621927166506/front-left-side-47.jpg",
+    imgText: "aerghakerkg ttttt",
+    impresions: 37, 
+    engagedUsers: 220,
+    name: "Display Ad with Image",
+  },
+];
+
+export const TopLandingPages = [
+  {
+    color: "red",
+    page: "jgje aweihfkiw uwef",
+    session: 345, 
   },
   {
-    "id": "dcc6476c-2b6c-4acd-955f-32a0337b5832",
-    "name": "Shanahan - Turcotte",
-    "streetAddress": "29879 Braun Harbors",
-    "city": "McLean",
-    "state": "MT",
-    "missionStatement": "reinvent visionary markets"
+    color: "green",
+    page: "jgje aweihfkiw uwef",
+    session: 10, 
   },
   {
-    "id": "ccdbb85d-2175-4865-a69c-a76557216364",
-    "name": "Gutkowski Inc",
-    "streetAddress": "964 Immanuel Views",
-    "city": "Flagstaff",
-    "state": "AL",
-    "missionStatement": "mesh e-business schemas"
+    color: "pink",
+    page: "jgje aweihfkiw uwef",
+    session: 100, 
   },
   {
-    "id": "19df3e35-1577-48a7-9e2f-f79c4f6c36ef",
-    "name": "Stark Inc",
-    "streetAddress": "42353 Kovacek Terrace",
-    "city": "Jupiter",
-    "state": "MI",
-    "missionStatement": "facilitate enterprise infomediaries"
+    color: "blue",
+    page: "jgje aweihfkiw uwef",
+    session: 40, 
   },
   {
-    "id": "5e50f063-6620-491c-904c-fe8e40488802",
-    "name": "Schmidt and Sons",
-    "streetAddress": "8478 Kulas Park",
-    "city": "Peoria",
-    "state": "MO",
-    "missionStatement": "revolutionize e-business platforms"
+    color: "brown",
+    page: "jgje aweihfkiw uwef",
+    session: 600, 
   },
-  {
-    "id": "a46de859-251b-42f6-a6c4-1642beba6b56",
-    "name": "Mohr - Raynor",
-    "streetAddress": "19858 Arianna Views",
-    "city": "Battle Creek",
-    "state": "VT",
-    "missionStatement": "synergize global blockchains"
-  },
-  {
-    "id": "06f55c10-2481-4b5d-9a70-d8845f5e1381",
-    "name": "Tromp, Runolfsson and Bahringer",
-    "streetAddress": "83031 Kling Drive",
-    "city": "Frisco",
-    "state": "OK",
-    "missionStatement": "incubate bricks-and-clicks communities"
-  }
 ];
 
 

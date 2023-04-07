@@ -1,45 +1,33 @@
-import { Text } from '@mantine/core';
-import { DataTable } from 'mantine-datatable';
-import React from 'react';
+import sortBy from 'lodash/sortBy';
+import { DataTable, DataTableSortStatus } from 'mantine-datatable';
+import { useEffect, useState } from 'react';
+import { type Company } from './data';
 
-export default function DataTableComponent() {
+export default function DataTableComponent(data: {
+  initialSortingField: string,
+  initialSortingOrder?: string,
+  dataList: any[],
+  headerList: any[],
+}) {
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus>({ 
+    columnAccessor: `${data.initialSortingField}`, 
+    direction: 'asc' 
+  });
+  const [records, setRecords] = useState(sortBy(data.dataList, data.initialSortingField));
+
+  useEffect(() => {
+    const allData = sortBy(data.dataList, sortStatus.columnAccessor);
+    setRecords(sortStatus.direction === 'desc' ? allData.reverse() : allData);
+  }, [sortStatus]);
+
   return (
     <DataTable
       withBorder
-      borderRadius="sm"
       withColumnBorders
-      striped
-      highlightOnHover
-      // provide data
-      records={[
-        { id: 1, name: 'Joe Biden', bornIn: 1942, party: 'Democratic' },
-        // more records...
-      ]}
-      // define columns
-      columns={[
-        {
-          accessor: 'id',
-          // this column has a custom title
-          title: '#',
-          // right-align column
-          textAlignment: 'right',
-        },
-        { accessor: 'name' },
-        {
-          accessor: 'party',
-          // this column has custom cell data rendering
-          render: ({ party }) => (
-            <Text weight={700} color={party === 'Democratic' ? 'blue' : 'red'}>
-              {party.slice(0, 3).toUpperCase()}
-            </Text>
-          ),
-        },
-        { accessor: 'bornIn' },
-      ]}
-      // execute this callback when a row is clicked
-      onRowClick={({ name, party, bornIn }) =>
-        alert(`You clicked on ${name}, a ${party.toLowerCase()} president born in ${bornIn}.`)
-      }
+      records={records}
+      columns={data.headerList}
+      sortStatus={sortStatus}
+      onSortStatusChange={setSortStatus}
     />
   );
 }
