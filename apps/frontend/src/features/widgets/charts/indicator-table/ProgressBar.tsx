@@ -6,7 +6,7 @@ const useStyles = createStyles((theme) => ({
     textAlign: "right",
   },
   progressBar: {
-    width: "87%",
+    width: "85%",
     background: "transparent",
   }
 }));

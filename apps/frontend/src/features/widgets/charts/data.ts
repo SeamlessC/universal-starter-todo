@@ -179,6 +179,29 @@ export const TopLandingPages = [
   },
 ];
 
+export const TopChannels = [
+  {
+    color: "red",
+    channel: "jgje aweihfkiw uwef",
+    sessions: 400, 
+  },
+  {
+    color: "green",
+    channel: "jgje aweihfkiw uwef",
+    sessions: 300, 
+  },
+  {
+    color: "pink",
+    channel: "jgje aweihfkiw uwef",
+    sessions: 778, 
+  },
+  {
+    color: "blue",
+    channel: "jgje aweihfkiw uwef",
+    sessions: 180, 
+  },
+];
+
 
 export const StatData = {
   "data": [

@@ -21,13 +21,17 @@ export default function DataTableComponent(data: {
   }, [sortStatus]);
 
   return (
-    <DataTable
-      withBorder
-      withColumnBorders
-      records={records}
-      columns={data.headerList}
-      sortStatus={sortStatus}
-      onSortStatusChange={setSortStatus}
-    />
+    <div style={{width: "80%"}}>
+      <DataTable
+        withBorder
+        withColumnBorders
+        records={records}
+        columns={data.headerList}
+        sortStatus={sortStatus}
+        onSortStatusChange={setSortStatus}
+        mt={20}
+        mb={20}
+      />
+    </div>
   );
 }

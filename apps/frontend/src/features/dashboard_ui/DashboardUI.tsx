@@ -1,7 +1,7 @@
 import { createStyles } from "@mantine/core";
 import AreaChart from "../widgets/charts/AreaChart";
 import BarChart from "../widgets/charts/BarChart";
-import { chartLabels, columns, companies, listViewData, multiLineChartData, progressBarData, singleLineChartData, type Company, TopPosts, TopLandingPages } from "../widgets/charts/data";
+import { chartLabels, columns, companies, listViewData, multiLineChartData, progressBarData, singleLineChartData, type Company, TopPosts, TopLandingPages, TopChannels } from "../widgets/charts/data";
 import DoughnutChart from "../widgets/charts/Doughnut";
 import GaugeGraph from "../widgets/charts/GaugeChart";
 import HorizontalBarChart from "../widgets/charts/HorizontalBarChart";
@@ -60,6 +60,26 @@ export const topPostsHeaders = [
 	{ accessor: 'session', width: '30%', sortable: true },
   ]
 
+  export const topChannelBySessionsHeaders = [
+	{ 
+	  accessor: 'channel', 
+	  title: "Channel", 
+	  width: '50%', 
+	  render: (channel: any) => (
+		<IndicatorWithText color={channel.color} label={channel.channel} />
+	  ),
+	},
+	{ 
+		accessor: 'sessions', 
+		title: "Sessions", 
+		width: '50%', 
+		sortable: true,
+		render: (session: any) => (
+			<ProgressBar value={session.sessions} color={"green"} label={session.sessions} highestValue={800} />
+		),
+	},
+  ]
+
 function DashboardUI() {
 	const { classes, theme } = useStyles();
 
@@ -86,6 +106,12 @@ function DashboardUI() {
 				initialSortingField="session"
 				dataList={TopLandingPages}
 				headerList={topLandingPageHeaders}
+			/>
+
+			<DataTableComponent 
+				initialSortingField="sessions"
+				dataList={TopChannels}
+				headerList={topChannelBySessionsHeaders}
 			/>
 
 			{
