@@ -107,33 +107,6 @@ export type Company = {
   missionStatement: string;
 };
 
-export const columns = [
-  { accessor: 'name', width: '40%', sortable: true },
-  { accessor: 'streetAddress', width: '60%' },
-  { accessor: 'city', width: 160, sortable: true },
-  { accessor: 'state', sortable: true },
-];
-
-export const companies = [
-  {
-    "id": "ab1e3aa6-3116-4e0d-a33d-9262aac86747",
-    "name": "Pfeffer and Sons",
-    "streetAddress": "91877 Greenholt Cove",
-    "city": "Tyler",
-    "state": "MA",
-    "missionStatement": "strategize intuitive infrastructures"
-  },
-  {
-    "id": "6c2c52f1-e197-4892-ae8e-5b5e42c226cb",
-    "name": "Hettinger, Willms and Connelly",
-    "streetAddress": "353 Cremin Via",
-    "city": "Deltona",
-    "state": "NJ",
-    "missionStatement": "mesh sexy synergies"
-  },
-];
-
-
 export const TopPosts = [
   {
     img: "https://cdn.shopify.com/s/files/1/2439/4751/products/Notice-Please-Wipe-Down-Your-Work-Area-Regularly-Red.jpg?v=1601953916",
@@ -202,6 +175,30 @@ export const TopChannels = [
   },
 ];
 
+export const TopCampaigns = [
+  {
+    campaign: "jgje aweihfkiw uwef",
+    impressions: 400, 
+    changeOfImpressions: -300,
+    clicks: 34,
+    changeOfClicks: 32,
+    conversation: 210,
+    changeOfConversation: -10,
+    costConvo: 445,
+    changeOfCostConvo: 55,
+  },
+  {
+    campaign: "Maneesha ajehgjaew",
+    impressions: 300, 
+    changeOfImpressions: -80,
+    clicks: 6,
+    changeOfClicks: 3,
+    conversation: 80,
+    changeOfConversation: 10,
+    costConvo: 45,
+    changeOfCostConvo: -5,
+  },
+];
 
 export const StatData = {
   "data": [

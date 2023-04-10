@@ -1,7 +1,7 @@
 import { createStyles } from "@mantine/core";
 import AreaChart from "../widgets/charts/AreaChart";
 import BarChart from "../widgets/charts/BarChart";
-import { chartLabels, columns, companies, listViewData, multiLineChartData, progressBarData, singleLineChartData, type Company, TopPosts, TopLandingPages, TopChannels } from "../widgets/charts/data";
+import { chartLabels, listViewData, multiLineChartData, progressBarData, singleLineChartData, type Company, TopPosts, TopLandingPages, TopChannels, TopCampaigns } from "../widgets/charts/data";
 import DoughnutChart from "../widgets/charts/Doughnut";
 import GaugeGraph from "../widgets/charts/GaugeChart";
 import HorizontalBarChart from "../widgets/charts/HorizontalBarChart";
@@ -17,6 +17,7 @@ import { IndicatorWithText } from "../widgets/charts/indicator-table/IndicatorWi
 import { ProgressBar } from "../widgets/charts/indicator-table/ProgressBar";
 import DataTableComponent from "../widgets/charts/DataTableComponent";
 import ImageWithText from "../widgets/charts/list-views-tables/ImageWithText";
+import { TopCampaignDataIndicator } from "../widgets/charts/indicator-table/TopCampaignDataIndicator";
 
 const useStyles = createStyles((theme) => ({
 	cardBg: {
@@ -80,6 +81,41 @@ export const topPostsHeaders = [
 	},
   ]
 
+  export const topCampaignsHeaders = [
+	{ accessor: 'campaign', width: '40%' },
+	{ 
+		accessor: 'impressions', 
+		title: "Impressions", 
+		width: '15%', 
+		sortable: true,
+		render: (campaign: any) => (
+			<TopCampaignDataIndicator impressions={campaign.impressions} changeOfImpressions={campaign.changeOfImpressions} />
+		),
+	},
+	{ 
+		accessor: 'clicks', 
+		width: '15%', 
+		render: (campaign: any) => (
+			<TopCampaignDataIndicator impressions={campaign.clicks} changeOfImpressions={campaign.changeOfClicks} />
+		),
+	},
+	{ 
+		accessor: 'conversation', 
+		width: '15%', 
+		render: (campaign: any) => (
+			<TopCampaignDataIndicator impressions={campaign.conversation} changeOfImpressions={campaign.changeOfConversation} />
+		),
+	},
+	{ 
+		accessor: 'costConvo', 
+		title: "Cost / Conversations", 
+		width: '15%', 
+		render: (campaign: any) => (
+			<TopCampaignDataIndicator impressions={campaign.costConvo} changeOfImpressions={campaign.changeOfCostConvo} />
+		),
+	},
+  ]
+
 function DashboardUI() {
 	const { classes, theme } = useStyles();
 
@@ -88,13 +124,6 @@ function DashboardUI() {
 			<DashBoardUIHeader />
 			<DashBoardUIBody />
 			<DashboardUIDrawer />
-
-
-			<DataTableComponent 
-				initialSortingField="name"
-				dataList={companies}
-				headerList={columns}
-			/>
 
 			<DataTableComponent 
 				initialSortingField="impressions"
@@ -112,6 +141,12 @@ function DashboardUI() {
 				initialSortingField="sessions"
 				dataList={TopChannels}
 				headerList={topChannelBySessionsHeaders}
+			/>
+
+			<DataTableComponent 
+				initialSortingField="impressions"
+				dataList={TopCampaigns}
+				headerList={topCampaignsHeaders}
 			/>
 
 			{
