@@ -13,7 +13,7 @@ SuperTokens.init({
 	appInfo: {
 		apiBasePath: "/auth",
 		appName: "Analytica",
-		apiDomain: "http://localhost:3001",
+		apiDomain: "http://localhost:3333",
 	},
 	recipeList: [Session.init(), ThirdPartyEmailPassword.init()],
 });

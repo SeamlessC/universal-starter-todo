@@ -1,6 +1,8 @@
 import { Container } from "@mantine/core";
 import React from "react";
 import DashboardUI from "../dashboard_ui/DashboardUI";
+import { HomeDashboard } from "./HomeDashboard";
+import CreateCustomTemplate from "../create-custom-template/CreateCustomTemplate";
 
 interface HomeProps {}
 

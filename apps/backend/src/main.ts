@@ -5,13 +5,29 @@ import { getEnv } from "./_common/config/local.config";
 import { NestApplicationOptions, ValidationPipe } from "@nestjs/common";
 import AltairFastify from "altair-fastify-plugin";
 import { GlobalGraphQLFilter } from "./_common/filters/gql.exception.filter";
+import supertokens from 'supertokens-node';
+import { SupertokensExceptionFilter } from './auth/auth.filter';
+
 declare const module: any;
 
 type appType = Promise<NestFastifyApplication>;
 
 export async function createApp(options?: NestApplicationOptions): appType {
 	const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(), options);
-	app.enableCors();
+	app.enableCors({
+		origin: ['http://localhost:3000'],
+		allowedHeaders: ['content-type', ...supertokens.getAllCORSHeaders()],
+		credentials: true,
+	});
+	// app.enableCors({
+	// 	// origin: ['http://localhost:3000'],
+	// 	allowedHeaders: ['content-type', ...supertokens.getAllCORSHeaders()],
+	// 	// methods: ["GET", "PUT", "POST", "DELETE"],
+	// 	// credentials: true,
+	// });
+
+	// app.useGlobalFilters(new SupertokensExceptionFilter());
+
 	app.useGlobalPipes(
 		new ValidationPipe({
 			transform: true,
@@ -19,7 +35,7 @@ export async function createApp(options?: NestApplicationOptions): appType {
 			exceptionFactory: (errors) => console.log(errors.toString(), "TESTING"),
 		})
 	);
-	app.useGlobalFilters(new GlobalGraphQLFilter());
+	app.useGlobalFilters(new GlobalGraphQLFilter(), new SupertokensExceptionFilter());
 	app.getHttpAdapter().getInstance().register(AltairFastify, {
 		path: "/altair",
 		baseURL: "/altair/",
