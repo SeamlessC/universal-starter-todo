@@ -6,6 +6,8 @@ import { TemplateGrid } from "./TemplateGrid";
 import { TemplateTypes } from "./TemplateTypes";
 import DashboardPreferences from "./dashboard-preferences/DashboardPreferences";
 
+import React from "react";
+
 export function HomeDashboard() {
 	const [templateType, setTemplateType] = useState("periodic");
 

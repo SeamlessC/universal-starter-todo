@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Stepper, createStyles } from "@mantine/core";
+import React from "react";
 
 const useStyles = createStyles((theme) => ({
 	header: {

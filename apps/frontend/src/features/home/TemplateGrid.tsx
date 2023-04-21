@@ -1,3 +1,4 @@
+import React from "react";
 import { createStyles, Text, Image, Container, Grid, Group, Anchor } from "@mantine/core";
 
 // import ad_report from "../../assets/ad_report.png";
@@ -109,9 +110,9 @@ export function TemplateGrid({ templateType }: { templateType: String }) {
 	} else if (templateType === "Rolling Dashboards") {
 		data = templateTypes.rolling;
 	}
-	const templates = data.map((item) => (
-		<Grid.Col xs={3} key={item.title}>
-			<Group className={classes.item}>
+	const templates = data.map((item, i) => (
+		<Grid.Col xs={3} key={i}>
+			<Group className={classes.item} data-testid={item.title}>
 				<Image src={item.icon} alt={item.title} width={40} />
 				<Text size="xs" mt={7} className={classes.title}>
 					{item.title}

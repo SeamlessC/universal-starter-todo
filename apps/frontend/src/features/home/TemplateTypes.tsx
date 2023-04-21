@@ -2,11 +2,14 @@ import { Card, Image, Text, Group, createStyles, Title, Spoiler } from "@mantine
 
 import testImg from "../../assets/type-icon.png";
 
+import React from "react";
+
 const useStyles = createStyles((theme) => ({
 	card: {
 		backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
 		// marginTop: "20px",
-		height: window.innerHeight - 310,
+		// height: window.innerHeight - 310,
+		height: window.innerHeight - window.innerHeight/7,
 	},
 
 	title: {
@@ -50,8 +53,8 @@ const mockdata = [
 
 export function TemplateTypes({ setTemplateType }: { setTemplateType: any }) {
 	const { classes } = useStyles();
-	const templateTypesData = mockdata.map((template) => (
-		<Group position="apart" mt="md" className={classes.borderBottom}>
+	const templateTypesData = mockdata.map((template, i) => (
+		<Group position="apart" mt="md" className={classes.borderBottom} key={i}>
 			<div>
 				<Group>
 					<Image src={template.icon} alt={template.label} width={18} />
@@ -60,7 +63,7 @@ export function TemplateTypes({ setTemplateType }: { setTemplateType: any }) {
 					</Text>
 				</Group>
 				{template.showSpoiler ? (
-					<Spoiler maxHeight={55} showLabel="Learn more" hideLabel="Hide">
+					<Spoiler maxHeight={55} showLabel="Learn more" role="showHide" hideLabel="Hide">
 						<Text size="xs" color="dimmed">
 							aghaki aerhg aeiuhg aeuigha aeruihg; aeriguh;aeg aeiugha egaieuhg aegaieug;ae aeiugh;aehig aeiughaaeg
 							aergae aegy aeriug egiaeig aeyglae aeigaleiughii aghaki aerhg aeiuhg aeuigha aeruihg; aeriguh;aeg aeiugha

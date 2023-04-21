@@ -1,3 +1,4 @@
+import React from "react";
 import { createStyles, Button } from "@mantine/core";
 import { AutocompleteLoading } from './Input';
 
@@ -57,7 +58,7 @@ const mockdata = [
 
 
 const inputs = () => {
-    return mockdata.map((e, i) => <AutocompleteLoading label={e.label} placeholder={e.placeholder}/>)
+    return mockdata.map((e, i) => <AutocompleteLoading key={i} label={e.label} placeholder={e.placeholder}/>)
 }
 
 
