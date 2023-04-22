@@ -88,11 +88,11 @@ function DashboardPreferences() {
             <div className={classes.desktopView}>Fill out your dashboard preferences</div>
             <div className={classes.mobileView}>Dashboard preferences</div>
         </div>
-        <form onSubmit={form.onSubmit(console.log)}>
+        <form onSubmit={form.onSubmit(console.log)} data-testid="preferences-form">
             <div className={classes.inputBox}>
                 {inputs()}
                 <div className={classes.continueBtnBox}>
-                    <Button type="submit" className={classes.continueBtn} variant="gradient" gradient={{ from: 'orange', to: 'red' }}>Continue</Button>
+                    <Button data-testid="Continue-target-btn" type="submit" className={classes.continueBtn} variant="gradient" gradient={{ from: 'orange', to: 'red' }}>Continue</Button>
                 </div>
             </div>
         </form>

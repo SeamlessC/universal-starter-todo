@@ -20,6 +20,7 @@ export function AutocompleteLoading({label, placeholder, form, validationName}) 
       label={label}
       placeholder={placeholder}
       {...form.getInputProps(validationName)}
+      data-testid={validationName}
     />
   );
 }
