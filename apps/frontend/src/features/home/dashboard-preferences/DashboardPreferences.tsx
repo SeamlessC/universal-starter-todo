@@ -1,6 +1,7 @@
 import React from "react";
 import { createStyles, Button } from "@mantine/core";
 import { AutocompleteLoading } from './Input';
+import { useForm } from "@mantine/form";
 
 const useStyles = createStyles((theme) => ({
 	main: {
@@ -50,20 +51,36 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const mockdata = [
-    {label: "Dashboard Name", placeholder: "Dashboard Name"},
-    {label: "Language(Region) & Currency", placeholder: "English(United States) - $"},
-    {label: "Time Period", placeholder: "Monthly"},
-    {label: "Password(Optional)", placeholder: "Password"},
+    {label: "Dashboard Name", placeholder: "Dashboard Name", validationName: 'dashboardName'},
+    {label: "Language(Region) & Currency", placeholder: "English(United States) - $", validationName: 'languageCurency'},
+    {label: "Time Period", placeholder: "Monthly", validationName: 'timePeiod'},
+    {label: "Password(Optional)", placeholder: "Password", validationName: 'password'},
 ];
 
 
-const inputs = () => {
-    return mockdata.map((e, i) => <AutocompleteLoading key={i} label={e.label} placeholder={e.placeholder}/>)
-}
+// const inputs = () => {
+//     return mockdata.map((e, i) => <AutocompleteLoading key={i} label={e.label} placeholder={e.placeholder} form={form} validationName={e.validationName}/>)
+// }
 
 
 function DashboardPreferences() {
    const { classes, theme } = useStyles();
+
+   const form = useForm({
+    initialValues: { dashboardName: '', languageCurency: '', timePeiod: '', password: '' },
+
+    // functions will be used to validate values at corresponding key
+    validate: {
+        dashboardName: (value) => (value == null || value.length <= 0 ? 'Please Enter Dashboard Name' : null),
+        languageCurency: (value) => (value == null || value.length <= 0 ? 'Please Enter Language(Region) & Currency' : null),
+        timePeiod: (value) => (value == null || value.length <= 0 ? 'Please Enter Time Period' : null),
+        password: (value) => (value == null || value.length <= 0 ? 'Please Enter Password' : null),
+    },
+  });
+
+  const inputs = () => {
+    return mockdata.map((e, i) => <AutocompleteLoading key={i} label={e.label} placeholder={e.placeholder} form={form} validationName={e.validationName}/>)
+  }
 
   return (
     <div className={classes.main}>
@@ -71,12 +88,14 @@ function DashboardPreferences() {
             <div className={classes.desktopView}>Fill out your dashboard preferences</div>
             <div className={classes.mobileView}>Dashboard preferences</div>
         </div>
-        <div className={classes.inputBox}>
-            {inputs()}
-            <div className={classes.continueBtnBox}>
-                <Button className={classes.continueBtn} variant="gradient" gradient={{ from: 'orange', to: 'red' }}>Continue</Button>
+        <form onSubmit={form.onSubmit(console.log)}>
+            <div className={classes.inputBox}>
+                {inputs()}
+                <div className={classes.continueBtnBox}>
+                    <Button type="submit" className={classes.continueBtn} variant="gradient" gradient={{ from: 'orange', to: 'red' }}>Continue</Button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
   )
 }

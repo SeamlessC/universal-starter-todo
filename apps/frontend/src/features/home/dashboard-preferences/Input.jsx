@@ -1,6 +1,5 @@
 import React from "react";
-import { useState, useRef } from 'react';
-import { Autocomplete, Loader, createStyles } from '@mantine/core';
+import { TextInput, createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   input: {
@@ -12,40 +11,15 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-export function AutocompleteLoading({label, placeholder}) {
-  const timeoutRef = useRef(-1);
-  const [value, setValue] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
+export function AutocompleteLoading({label, placeholder, form, validationName}) {
   const { classes, theme } = useStyles();
 
-    const handleChange = (val) => {
-    window.clearTimeout(timeoutRef.current);
-    setValue(val);
-    setData([]);
-
-    // if (val.trim().length === 0 || val.includes('@')) {
-    //   setLoading(false);
-    // } else {
-    //   setLoading(true);
-    //   timeoutRef.current = window.setTimeout(() => {
-    //     setLoading(false);
-    //     setData(['gmail.com', 'outlook.com', 'yahoo.com'].map((provider) => `${val}@${provider}`));
-    //   }, 1000);
-    // }
-    console.log(val)
-  };
-
   return (
-    <Autocomplete
-      value={value}
-      data={data}
-      onChange={handleChange}
-      rightSection={loading ? <Loader size={16} /> : null}
+    <TextInput 
+      className={classes.input}
       label={label}
       placeholder={placeholder}
-      className={classes.input}
-      required
+      {...form.getInputProps(validationName)}
     />
   );
 }
