@@ -14,26 +14,30 @@ const useStyle = createStyles((theme) => ({
     }
 }))
 
-function BillingInput(input: {btnVarient?: string, inputLabel: string, btnLabel: string}) {
+function BillingInput(input: {btnVarient?: string, inputLabel: string, btnLabel: string, placeholder: string, form: any, formData: string}) {
     const { classes, theme } = useStyle()
 
   return (
-    <Grid className={classes.mainContainer}>
-        <Grid.Col span={8}>
-            <TextInput
-                placeholder="Your name"
-                label={input.inputLabel}
-                withAsterisk
-            />
-        </Grid.Col>
-        <Grid.Col span={4}  className={classes.inputBtn}>
-            <Btn 
-                label={input.btnLabel}
-                btnWidth="100%"
-                varient={input.btnVarient ?? undefined}
-            />
-        </Grid.Col>
-    </Grid>
+    <form onSubmit={input.form.onSubmit(console.log)}>
+        <Grid className={classes.mainContainer}>
+            <Grid.Col span={8}>
+                <TextInput
+                    placeholder={input.placeholder}
+                    label={input.inputLabel}
+                    withAsterisk
+                    {...input.form.getInputProps(input.formData)}
+                />
+            </Grid.Col>
+            <Grid.Col span={4}  className={classes.inputBtn}>
+                <Btn 
+                    label={input.btnLabel}
+                    btnWidth="100%"
+                    varient={input.btnVarient ?? undefined}
+                    type='submit'
+                />
+            </Grid.Col>
+        </Grid>
+    </form>
   )
 }
 

@@ -21,8 +21,8 @@ const useStyle = createStyles((theme) => ({
 function SecuritySettingsTable(table: {withBorder?: boolean, withColBorder?: boolean, heads: string[], isAccessLog?: boolean}) {
   const { classes, theme } = useStyle()  
 
-  const tableHeads = table.heads.map((head) => (
-    <th><Center>{head}</Center></th>
+  const tableHeads = table.heads.map((head, i) => (
+    <th key={i}><Center>{head}</Center></th>
   ))
 
   const AccessLogRows = elements.map((element) => (
