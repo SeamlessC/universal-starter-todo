@@ -4,6 +4,7 @@ import React from 'react'
 import Btn from '../Btn'
 import CustomeLink from '../Links'
 import BillingInfo from './BillingInfo'
+import { SwitchButton } from '../SwitchButon'
 
 const useStyle = createStyles((theme) => ({
   planContainer: {
@@ -52,8 +53,8 @@ function PlanAndBilling() {
                 Individual Plan
               </Title>
               <div>
-                <Checkbox label="I agree to sell my privacy" checked className={classes.marginTop} />
-                <Checkbox label="I agree to sell my privacy" checked className={classes.marginTop} />
+                <Checkbox label="I agree to sell my privacy" checked readOnly className={classes.marginTop} />
+                <Checkbox label="I agree to sell my privacy" checked readOnly className={classes.marginTop} />
               </div>
             </Grid.Col>
           </Grid>
@@ -65,6 +66,7 @@ function PlanAndBilling() {
           />
         </Center>
         <BillingInfo />
+        <SwitchButton label="Auto payment enable" />
         <Center className={classes.marginTop}>
           <CustomeLink 
             label="Cancel Plan"
