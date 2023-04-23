@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Btn from '../Btn'
 import Link from '../Links'
 import ProfileDataInput from '../profile-info/ProfileDataInput'
+import { useForm } from '@mantine/form'
 
 const useStyle = createStyles((theme) => ({
   marginTop: {
@@ -18,10 +19,19 @@ const useStyle = createStyles((theme) => ({
 
 function AccountAccess() {
   const { classes, theme } = useStyle()
-  const [cPw, setCPw] = useState("")
-  const [nPw, setNPw] = useState("")
-  const [rePw, setRePw] = useState("")
+  // const [cPw, setCPw] = useState("")
+  // const [newPw, setNPw] = useState("")
+  // const [rePw, setRePw] = useState("")
   const [checked, setChecked] = useState(true)
+
+  const form = useForm({
+    initialValues: { cPw: '', nPw: '', rePw: '' },
+    validate: {
+      cPw: (value) => (value.length < 3 ? 'Current password must have at least 3 letters' : null),
+      nPw: (value) => (value.length < 6 ? 'New password must have at least 6 letters' : null),
+      rePw: (value) => (value.length < 6 ? 'Please insert the same password' : null),
+    },
+  });
 
   return (
     <div>
@@ -31,24 +41,30 @@ function AccountAccess() {
       <Text color={theme.colors.gray[6]} className={classes.marginTop}>
         Create a new password that is at least 8 characters long.
       </Text>
-      <div className={classes.inputBox}>
+      <form onSubmit={form.onSubmit(console.log)} className={classes.inputBox}>
         <ProfileDataInput
           label="Type your current password"
           placeholder="Current Password"
-          setData={setCPw}
+          setData={undefined}
           withAsterisk={true}
+          form={form} 
+          formData={'cPw'} 
         />
         <ProfileDataInput
-          label="Type your current password"
+          label="Type your New password"
           placeholder="New password"
-          setData={setNPw}
+          setData={undefined}
           withAsterisk={true}
+          form={form} 
+          formData={'nPw'} 
         />
         <ProfileDataInput
           label="Retype your new password"
           placeholder="Reype new password"
-          setData={setRePw}
-          withAsterisk={true}
+          setData={undefined}
+          withAsterisk={true} 
+          form={form} 
+          formData={'rePw'}        
         />
         <Flex
             align="center"
@@ -67,13 +83,14 @@ function AccountAccess() {
               label="Save Password"
               btnWidth="50%"
               marginTop="4%"
+              type='submit'
             />
             <Link 
               label="Forgot Password"
               underline={true}
             />
           </Flex>
-      </div>
+      </form>
     </div>
   )
 }
