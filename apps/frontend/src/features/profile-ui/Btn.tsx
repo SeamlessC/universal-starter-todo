@@ -18,16 +18,20 @@ function Btn(btn: {
     btnWidth?: string,
     marginTop?: string,
     margin?: string,
+    type?: any,
+    onClick?: any,
   }) {
 
   const { classes, theme } = useStyle()
 
   return (
     <Button 
+      type={btn.type}
       variant={btn.varient != null ? btn.varient : "filled"} 
       disabled={btn.disabled ? true : false}
       className={classes.btnWidthSmall}
       style= {{width: btn.btnWidth, marginTop: btn.marginTop, margin: btn.margin}}
+      onClick={btn.onClick}
     >
         {btn.label}
     </Button>

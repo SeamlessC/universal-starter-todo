@@ -4,6 +4,7 @@ import CameraIcon from '../../../assets/camera.png'
 import ProfileDataInput from './ProfileDataInput'
 import { useEffect, useState } from 'react'
 import Btn from '../Btn'
+import { useForm } from '@mantine/form'
 
 const useStyle = createStyles((theme) => ({
   imgDiv: {
@@ -30,17 +31,27 @@ const useStyle = createStyles((theme) => ({
 
 function ProfileInfo() {
   const { classes, theme } = useStyle()
-  const [ name, setName ] = useState()
-  const [ email, setEmail ] = useState()
-  const [ lname, setLName ] = useState()
+  // const [ name, setName ] = useState()
+  // const [ email, setEmail ] = useState()
+  // const [ lname, setLName ] = useState()
   const [file, setFile] = useState<File | null>(null);
 
   useEffect(() => {
     console.log(file)
   }, [file])
+
+  const form = useForm({
+    initialValues: { name: '', email: '', administrativeEmail: '', lname: '' },
+    validate: {
+      name: (value) => (value.length < 3 ? 'Fullname must have at least 3 letters' : null),
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+      administrativeEmail: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+      lname: (value) => (value.length < 3 ? 'Lastname must have at least 3 letters' : null),
+    },
+  });
   
   return (
-    <form>
+    <form onSubmit={form.onSubmit(console.log)}>
       <Grid>
         <Grid.Col span={4}>
           <div className={classes.imgDiv}>
@@ -58,11 +69,14 @@ function ProfileInfo() {
           <Stack justify="space-between">
             <div className={classes.basicInfoContainer}>
               <Title order={2}>About You</Title>
-              <ProfileDataInput label='Full Name' placeholder='Enter full name' setData={setName}/>
+              {/* <ProfileDataInput label='Full Name' placeholder='Enter full name' setData={setName}/>
               <ProfileDataInput label='Last Name' placeholder='Enter last name' setData={setLName}/>
-              <ProfileDataInput label='Email Address' placeholder='Enter email address' setData={setEmail}/>
+              <ProfileDataInput label='Email Address' placeholder='Enter email address' setData={setEmail}/> */}
+              <ProfileDataInput label='Full Name' placeholder='Enter full name' form={form} formData='name' setData={undefined}/>
+              <ProfileDataInput label='Last Name' placeholder='Enter last name' setData={undefined} form={form} formData='lname'/>
+              <ProfileDataInput label='Email Address' placeholder='Enter email address' setData={undefined} form={form} formData='email'/>
             </div>
-            <ProfileDataInput label='Administrator Email' placeholder='Enter administrator email' setData={setLName}/>
+            <ProfileDataInput label='Administrator Email' placeholder='Enter administrator email' setData={undefined} form={form} formData='administrativeEmail'/>
           </Stack>
         </Grid.Col>
         <Grid.Col span={12}>
@@ -70,13 +84,15 @@ function ProfileInfo() {
             <Btn 
               label='Cancel'
               varient="subtle" 
-              textColor={theme.colors.orange[7]}          
+              textColor={theme.colors.orange[7]}   
+              onClick={() => form.reset()}       
             />
             <Btn 
+              type='submit'
               label='Save Changes'
               bgColor={theme.colors.orange[7]} 
               textColor={theme.white}  
-              disabled={true}        
+              // disabled={true}        
             />
           </Group>
         </Grid.Col>
