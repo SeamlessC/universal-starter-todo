@@ -1,6 +1,7 @@
 import { createStyles, Title } from '@mantine/core'
 import BillingInput from './BillingInput'
 import { useForm } from '@mantine/form';
+import AddCard from './TestA';
 
 const useStyle = createStyles((theme) => ({
     bilingContainer: {
@@ -17,12 +18,12 @@ function BillingInfo() {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
     },
   });
-  const cardInfo = useForm({
-    initialValues: { cardNo: '' },
-    validate: {
-      cardNo: (value) => (/^[1-9][0-9]{15,15}$/.test(value) ? null : 'Invalid card number (1234-1234-1234-1234)'),
-    },
-  });
+  // const cardInfo = useForm({
+  //   initialValues: { cardNo: '' },
+  //   validate: {
+  //     cardNo: (value) => (/^[1-9][0-9]{15,15}$/.test(value) ? null : 'Invalid card number (1234123412341234)'),
+  //   },
+  // });
 
   return (
     <div className={classes.bilingContainer}>
@@ -37,12 +38,18 @@ function BillingInfo() {
             form={sender}
             formData='email'
         />
-        <BillingInput 
+        {/* <BillingInput 
             btnLabel="Edit Information"
             inputLabel="Credit card information"
-            placeholder='1234-1234-1234-1234'
+            placeholder='1234123412341234'
             form={cardInfo}
             formData='cardNo'
+        /> */}
+        <AddCard 
+          btnLabel="Edit Information"
+          inputLabel="Credit card information"
+          placeholder='1234123412341234'
+          btnVarient={undefined}   
         />
     </div>
   )

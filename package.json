@@ -50,8 +50,8 @@
 	},
 	"dependencies": {
 		"@commitlint/cli": "^17.2.0",
-		"@commitlint/config-conventional": "^17.2.0"
+		"@commitlint/config-conventional": "^17.2.0",
+		"react-creditcard-validator": "^1.0.6"
 	},
 	"packageManager": "pnpm@7.0.1"
 }
-
