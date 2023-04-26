@@ -1,4 +1,5 @@
 import { Anchor } from '@mantine/core'
+import React from 'react'
 
 function CustomeLink(link: {label: string, underline?: boolean, noMarginTop?: boolean}) {
   return (

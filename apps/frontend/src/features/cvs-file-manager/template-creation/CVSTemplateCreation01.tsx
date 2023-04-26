@@ -3,6 +3,7 @@ import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 import Btn from '../../profile-ui/Btn';
 import PlusIcon from '../../../assets/plus-icon.png'
 import CustomeLink from '../../profile-ui/Links';
+import React from 'react';
 
 const useStyles = createStyles((theme) => ({
   imgDropContent: {
@@ -44,7 +45,7 @@ export function CVSTemplateCreation01(props: {setfiles: any}) {
         </Group>
       </Dropzone>
       <Group position="center">
-        <Text>Wants to know which file types are supported? </Text>
+        <Text>Wants to know which file types are supported?</Text>
         <CustomeLink 
           label="Learn More"
           noMarginTop={true}

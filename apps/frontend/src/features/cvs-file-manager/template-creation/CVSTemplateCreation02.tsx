@@ -13,6 +13,7 @@ function CVSTemplateCreation02(data: {files: File[]}) {
             varient="outline"
             btnWidth='100%'
           />
+          <Text>test text</Text>
           <div style={{marginTop: "12%"}}>
             {
               data.files.map((e, index) => {

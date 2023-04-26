@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FileButton, Button, Group, Text, List } from '@mantine/core';
+import React from 'react';
 
 export function FileBtn(file: {label: string, setFiles: any}) {
 //   const [files, setFiles] = useState<File[]>([]);

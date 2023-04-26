@@ -1,4 +1,5 @@
 import { createStyles, Divider, Text } from '@mantine/core'
+import React from 'react'
 
 const useStyele = createStyles((theme) => ({
   margin: {

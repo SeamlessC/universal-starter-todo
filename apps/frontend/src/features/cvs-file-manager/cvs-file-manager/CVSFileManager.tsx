@@ -2,6 +2,7 @@ import { createStyles, Group, ScrollArea, Text, Title } from '@mantine/core'
 import Btn from '../../profile-ui/Btn'
 import Search from '../../widgets/Search'
 import { CVSAccordion } from './CVSAccordion'
+import React from 'react'
 
 const useStyele = createStyles((theme) => ({
     marginTop: {
