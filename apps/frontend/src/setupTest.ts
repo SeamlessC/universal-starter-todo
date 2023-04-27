@@ -2,7 +2,16 @@ import "@testing-library/jest-dom";
 // @ts-expect-error
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
-
-import * as ResizeObserverModule from 'resize-observer-polyfill';
-
-(global as any).ResizeObserver = ResizeObserverModule.default;
+Object.defineProperty(window, "matchMedia", {
+	writable: true,
+	value: vi.fn().mockImplementation((query) => ({
+		matches: false,
+		media: query,
+		onchange: null,
+		addListener: vi.fn(), // deprecated
+		removeListener: vi.fn(), // deprecated
+		addEventListener: vi.fn(),
+		removeEventListener: vi.fn(),
+		dispatchEvent: vi.fn(),
+	})),
+});

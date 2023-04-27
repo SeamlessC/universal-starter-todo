@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@commitlint/cli': ^17.2.0
       '@commitlint/config-conventional': ^17.2.0
+      husky: ^8.0.3
       prettier: latest
       resize-observer-polyfill: ^1.5.1
       turbo: latest
@@ -14,7 +15,8 @@ importers:
       '@commitlint/config-conventional': 17.2.0
       resize-observer-polyfill: 1.5.1
     devDependencies:
-      prettier: 2.8.7
+      husky: 8.0.3
+      prettier: 2.8.8
       turbo: 1.9.3
 
   apps/backend:
@@ -243,15 +245,15 @@ importers:
     dependencies:
       '@babel/runtime': 7.20.1
       '@emotion/react': 11.10.5_fan5qbzahqtxlm5dzefqlqx5ia
-      '@mantine/core': 5.10.1_2cvcp2fmkimjo6eswn6as62zyy
-      '@mantine/dates': 5.10.1_2pcy5gxcf6b6o4w6izsfgjq25m
-      '@mantine/dropzone': 5.10.1_ynz4r3bmi75slbqnmaycv7w7wa
-      '@mantine/form': 5.10.1_react@18.2.0
-      '@mantine/hooks': 5.10.1_react@18.2.0
-      '@mantine/modals': 5.10.1_ynz4r3bmi75slbqnmaycv7w7wa
-      '@mantine/next': 5.10.1_sogmqz4enknxtkxk3k5s6bqwnq
-      '@mantine/notifications': 5.10.1_ynz4r3bmi75slbqnmaycv7w7wa
-      '@seamlessc/tabler-icons-react': 1.53.2_react@18.2.0
+      '@mantine/core': 5.7.2_s42f3uthtxnh7bllormamvwjhq
+      '@mantine/dates': 4.2.12_tkwtvtil3a5wynvu2oqdmkkaii
+      '@mantine/dropzone': 4.2.12_gpb23uvyv4tvmpz42jjjg2mwmq
+      '@mantine/form': 4.2.12_react@18.2.0
+      '@mantine/hooks': 5.7.2_react@18.2.0
+      '@mantine/modals': 4.2.12_gpb23uvyv4tvmpz42jjjg2mwmq
+      '@mantine/next': 4.2.12_2zx2umvpluuhvlq44va5bta2da
+      '@mantine/notifications': 4.2.12_gpb23uvyv4tvmpz42jjjg2mwmq
+      '@seamlessc/tabler-icons-react': 1.53.2
       case: 1.6.3
       date-fns: 2.29.3
       lodash.groupby: 4.6.0
@@ -10149,7 +10151,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -10934,6 +10936,12 @@ packages:
   /husky/7.0.4:
     resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
     engines: {node: '>=12'}
+    hasBin: true
+    dev: true
+
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
@@ -14711,8 +14719,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier/2.8.7:
-    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
+  /prettier/2.8.0:
+    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
