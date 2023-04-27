@@ -1,5 +1,5 @@
 import { Accordion, Box, createStyles, List, Group, Text } from '@mantine/core';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import CustomeLink from '../../profile-ui/Links';
 import { FileBtn } from '../../widgets/FileBtn';

@@ -1,5 +1,6 @@
 import { createStyles, Input } from '@mantine/core'
 import SearchIcon from '../../assets/search-icon.png'
+import React from 'react'
 
 const useStyele = createStyles((theme) => ({
   searchBar: {
