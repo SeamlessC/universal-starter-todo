@@ -1,20 +1,20 @@
 import React from "react";
 import "./App.css";
-import { RelayEnvironmentProvider } from "react-relay";
-import relayEnv from "./relayEnv";
 import Shell from "./features/shell/Shell";
+import { Authentication } from "./features/authentication/Authentication";
 
 const { Suspense } = React;
 
 function App() {
 	return (
-		<RelayEnvironmentProvider environment={relayEnv}>
-			<Suspense fallback={"Loading..."}>
-				<div className="App">
-					<Shell></Shell>
-				</div>
-			</Suspense>
-		</RelayEnvironmentProvider>
+		// <RelayEnvironmentProvider environment={relayEnv}>
+		<Suspense fallback={"Loading..."}>
+			<div className="App">
+				<Shell></Shell>
+				{/* <Authentication /> */}
+			</div>
+		</Suspense>
+		// </RelayEnvironmentProvider>
 	);
 }
 
