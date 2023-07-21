@@ -8,21 +8,9 @@ import { UserModule } from "./user/user.module";
 import { TodoModule } from "./todo/todo.module";
 import { SubTaskModule } from "./sub-task/sub-task.module";
 import { CategoryModule } from "./category/category.module";
-import { AuthModule } from './auth/auth.module';
 
 @Module({
 	imports: [
-		AuthModule.forRoot({
-			connectionURI: "https://dev-4bb51dc1c58011ed9a2ec180b8e4d5ef-us-east-1.aws.supertokens.io:3573",
-			apiKey: "u6DSmenwGue7wg1cMVFKLDyETtMLDD",
-			appInfo: {
-			  appName: "Analytica",
-			  apiDomain: "http://localhost:3333",
-			  websiteDomain: "http://localhost:3000",
-			  apiBasePath: "/auth",
-			  websiteBasePath: "/auth"
-			},
-		}),
 		ConfigModule.forRoot({ envFilePath: [".env", ".env.dev", ".env.prod"], isGlobal: true, cache: true }),
 		TypeOrmModule.forRoot({
 			type: "mysql",

@@ -3,7 +3,6 @@ import { useForm } from "@mantine/form";
 import Btn from "../profile-ui/Btn";
 import CustomeLink from "../profile-ui/Links";
 import { FacebookButton, GoogleButton } from "../widgets/social-buttons/SocialButtons";
-import { signInClicked, signUpClicked } from "./AuthFunctions";
 
 const useStyles = createStyles((theme) => ({
 	loginBtnContainer: {
@@ -48,9 +47,9 @@ function AuthenticationForm(authForm: { type: any }) {
 
 	const onSubmit = () => {
 		if (authForm.type === "login") {
-			signInClicked(form.values.email, form.values.password);
+			alert("Sign In clicked!!");
 		} else {
-			signUpClicked(form.values.email, form.values.password);
+			alert("Sign Up clicked!!");
 		}
 	};
 
